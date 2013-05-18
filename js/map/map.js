@@ -29,6 +29,7 @@
             // var mapSize = 10;
 			var map = ns.GenerateMap(mapSize, mapSize);
 
+            // 水の部分をオートタイル化する
             var autotile = ns.AutoTile(map.map);
 
 			// マップデータの作成
