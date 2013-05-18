@@ -334,7 +334,7 @@
                     if (getItem !== null) {
                         // 表示場所を設定
                         var itemPosition = this.mapCenterToScreenTopLeft(itemPosition.x, itemPosition.y);
-                        var itemEffect = ns.DamagedNumber(getItem.name, 100, 255, 150, 80);
+                        var itemEffect = ns.Baloon(getItem.name, 100, 255, 150, 80);
                         itemEffect.effectPositionSet(itemPosition.x + 10, itemPosition.y + 5);
                         app.currentScene.addChild(itemEffect);
 

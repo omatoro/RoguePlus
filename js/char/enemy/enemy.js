@@ -193,7 +193,7 @@
             	var damage = this.player.damage(attack);
 
             	// ダメージを表示
-            	var damageEffect = ns.DamagedNumber(damage);
+            	var damageEffect = ns.DamagedNumber(damage, 255, 20, 20, 255, 255, 255);
 
             	// 表示場所を設定
                 var damagePosition = this.map.mapCenterToScreenTopLeft(hittedElement.x, hittedElement.y);
