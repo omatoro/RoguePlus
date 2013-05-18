@@ -121,7 +121,7 @@
             var attackTiming = ns.Timing(150);
             this.attackTiming = attackTiming;
 
-            attackButton.addEventListener("pointingstart", function(e) {
+            attackButton.addEventListener("pointingmove", function(e) {
                 // タイミングが来たら攻撃可能
                 attackTiming.resetLimit(player.getAttackSpeed(e.app.fps));
                 if (attackTiming.is() === false) {

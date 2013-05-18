@@ -12,12 +12,10 @@
                 width :  ns.SCREEN_WIDTH,
                 height : ns.SCREEN_HEIGHT
             });
-        },
 
-        update : function(app) {
-            if (app.pointing.getPointingEnd()) {
-                app.replaceScene(ns.MainScene());
-            }
+            this.addEventListener("pointingend", function(e) {
+                e.app.replaceScene(ns.MainScene());
+            });
         }
     });
 
