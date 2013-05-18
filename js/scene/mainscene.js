@@ -57,9 +57,9 @@
             this.superInit();
 
             // コントローラーパッド
-            var pad = continuePad || tm.controller.Pad();
+            var pad = continuePad || tm.app.Pad();
             this.pad = pad;
-            pad.position.set(80, ns.SCREEN_HEIGHT - 80);
+            pad.position.set(100, ns.SCREEN_HEIGHT - 80);
 
             // プレイヤー
             var player = continuePlayer || ns.Player(pad);
@@ -114,13 +114,14 @@
             slash.position.set(ns.SCREEN_WIDTH/2 + 10, ns.SCREEN_HEIGHT/2 + 10);
 
             // 攻撃ボタン
-            var attackButton = tm.app.GlossyButton(200, 160, "green", "攻撃");
+            var attackIcon = tm.app.Sprite(72, 72, "attackIcon");
+            var attackButton = ns.GlossyImageButton(200, 160, attackIcon, "green");
             attackButton.position.set(ns.SCREEN_WIDTH-50-50, ns.SCREEN_HEIGHT-30-50);
             this.attackButton = attackButton;
             var attackTiming = ns.Timing(150);
             this.attackTiming = attackTiming;
 
-            attackButton.addEventListener("pointingmove", function(e) {
+            attackButton.addEventListener("pointingstart", function(e) {
                 // タイミングが来たら攻撃可能
                 attackTiming.resetLimit(player.getAttackSpeed(e.app.fps));
                 if (attackTiming.is() === false) {
@@ -180,7 +181,8 @@
             });
 
             // ステータス画面への遷移ボタン
-            var statusButton = tm.app.GlossyButton(150, 60, "blue", "ステータス");
+            var statusIcon = tm.app.Sprite(72, 72, "statusIcon");
+            var statusButton = ns.GlossyImageButton(200, 160, statusIcon, "blue");
             statusButton.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT-30-50);
             this.statusButton = statusButton;
             statusButton.addEventListener("pointingend", function(e) {

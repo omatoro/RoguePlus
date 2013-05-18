@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	var FONT_SIZE    = 24;
+	var FONT_SIZE    = 32;
 	var FONT_STYLE   = "rgba(255, 255, 255, 0.0)";
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;

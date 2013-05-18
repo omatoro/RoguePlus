@@ -76,6 +76,11 @@ tm.preload(function() {
 	tm.graphics.TextureManager.add("dropWeapon",   	"rsc/drop_weapon.png");
 	tm.graphics.TextureManager.add("dropTreasure", 	"rsc/item.png");
 
+	// アイコン
+	tm.graphics.TextureManager.add("attackIcon", 	"rsc/icon000.png");
+	tm.graphics.TextureManager.add("statusIcon", 	"rsc/icon090.png");
+
+
 	// 音
 	tm.sound.SoundManager.add("levelup",		"rsc/sound/[Action]Chinese_blade1_Komori.mp3");
 	tm.sound.SoundManager.add("openTreasure",	"rsc/sound/[Action]Door01_Isooki.mp3");
