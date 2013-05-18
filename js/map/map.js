@@ -4,8 +4,8 @@
 (function(ns) {
 
     // コマ送りアニメーションの基本的な書式を利用
-    var IMAGE_WIDTH  = 16;
-    var IMAGE_HEIGHT = 80;
+    var IMAGE_WIDTH  = 32;
+    var IMAGE_HEIGHT = 160;
     var IMAGE_DIVIDE_COLUMN = 1;
     var IMAGE_DIVIDE_ROW    = 5;
     var CHIP_WIDTH     = IMAGE_WIDTH;
@@ -26,16 +26,20 @@
 		init: function (pad) {
 			// マップの自動生成
             var mapSize = Math.rand(20, 31);
+            // var mapSize = 10;
 			var map = ns.GenerateMap(mapSize, mapSize);
+
+            var autotile = ns.AutoTile(map.map);
 
 			// マップデータの作成
 			var mapchip = ns.MapChip({
                 chips: {
-                	0: {width: CHIP_WIDTH, height: CHIP_HEIGHT, image: "Dirt1_pipo",  count: 5},
-                	1: {width: CHIP_WIDTH, height: CHIP_HEIGHT, image: "Water2_pipo", count: 5},
-                	2: {width: CHIP_WIDTH, height: CHIP_HEIGHT, image: "Grass1_pipo", count: 5},
+                	0: {width: CHIP_WIDTH,   height: CHIP_HEIGHT,   image: "Dirt1_pipo",  count: 5},
+                	1: {width: CHIP_WIDTH/2, height: CHIP_HEIGHT/2, image: "Water2_pipo", count: 20},
+                	2: {width: CHIP_WIDTH,   height: CHIP_HEIGHT,   image: "Grass1_pipo", count: 5},
                 },
                 map: map.map,
+                autotile: autotile,
                 collision: map.collision
             });
 

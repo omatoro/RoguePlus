@@ -33,25 +33,91 @@
         createMap: function() {
         	for (var i = 0; i < this.mapchip.map.length; ++i) {
         		for (var j = 0; j < this.mapchip.map[i].length; ++j) {
-        			var drawingMapChipID = this.mapchip.map[i][j];
+                    // 数値であれあば通常通り描画
+                    if (typeof this.mapchip.autotile.autoTileMap[i][j] === "number") {
+                        var drawingMapChipID = this.mapchip.map[i][j];
 
-        			var srcRect = this.mapchip.getMapChip(drawingMapChipID, 4);//this.currentFrame);
-        			var element = this.mapchip.images[drawingMapChipID].element;
+                        var srcRect = this.mapchip.getMapChip(drawingMapChipID, 4);//this.currentFrame);
+                        var element = this.mapchip.images[drawingMapChipID].element;
 
-        			var dx =  j*this.mapChipWidth;
-        			var dy =  i*this.mapChipHeight;
+                        var dx =  j*this.mapChipWidth;
+                        var dy =  i*this.mapChipHeight;
 
-        			// http://www.html5.jp/canvas/ref/method/drawImage.html
-		            this.canvas.drawImage(
-		            	element,
-		                srcRect.x,
-		                srcRect.y,
-		                srcRect.width,
-		                srcRect.height,
-		                dx,
-		                dy,
-		                this.mapChipWidth,
-		                this.mapChipHeight);
+                        // http://www.html5.jp/canvas/ref/method/drawImage.html
+                        this.canvas.drawImage(
+                            element,
+                            srcRect.x,
+                            srcRect.y,
+                            srcRect.width,
+                            srcRect.height,
+                            dx,
+                            dy,
+                            this.mapChipWidth,
+                            this.mapChipHeight);
+                    }
+                    // オートタイルだった場合は四回に分けて描画(ただの数値でなければOK)
+                    else {
+                        var drawingMapChipID = this.mapchip.map[i][j];
+                        var element = this.mapchip.images[drawingMapChipID].element;
+
+                        var dx =  j*this.mapChipWidth;
+                        var dy =  i*this.mapChipHeight;
+
+                        // 描画するタイルを取得
+                        var tile = this.mapchip.autotile.autoTileMap[i][j].tile;
+                        var a = tile.a.id-1;
+                        var b = tile.b.id-1;
+                        var c = tile.c.id-1;
+                        var d = tile.d.id-1;
+
+                        var srcRect = this.mapchip.getMapChip(drawingMapChipID, a);
+                        this.canvas.drawImage(
+                            element,
+                            srcRect.x,
+                            srcRect.y,
+                            srcRect.width,
+                            srcRect.height,
+                            dx,
+                            dy,
+                            this.mapChipWidth/2,
+                            this.mapChipHeight/2);
+
+                        var srcRect = this.mapchip.getMapChip(drawingMapChipID, b);
+                        this.canvas.drawImage(
+                            element,
+                            srcRect.x,
+                            srcRect.y,
+                            srcRect.width,
+                            srcRect.height,
+                            dx+this.mapChipWidth/2,
+                            dy,
+                            this.mapChipWidth/2,
+                            this.mapChipHeight/2);
+
+                        var srcRect = this.mapchip.getMapChip(drawingMapChipID, c);
+                        this.canvas.drawImage(
+                            element,
+                            srcRect.x,
+                            srcRect.y,
+                            srcRect.width,
+                            srcRect.height,
+                            dx,
+                            dy+this.mapChipHeight/2,
+                            this.mapChipWidth/2,
+                            this.mapChipHeight/2);
+
+                        var srcRect = this.mapchip.getMapChip(drawingMapChipID, d);
+                        this.canvas.drawImage(
+                            element,
+                            srcRect.x,
+                            srcRect.y,
+                            srcRect.width,
+                            srcRect.height,
+                            dx+this.mapChipWidth/2,
+                            dy+this.mapChipHeight/2,
+                            this.mapChipWidth/2,
+                            this.mapChipHeight/2);
+                    }
         		}
         	}
         },

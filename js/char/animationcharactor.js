@@ -115,7 +115,6 @@
         // 入力でパッドも使うならセットする
         setInputPad: function (pad) {
             this.pad = pad || false;
-            console.log(pad);
         },
 
         // 向いている方向を決める

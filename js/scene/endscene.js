@@ -5,9 +5,9 @@
 
     var RESULT_PARAM = {
             score: 256,
-            msg:      "【Rogue】",
+            msg:      "【Rogue+】",
             hashtags: ["omatoro", "Rogue", "tmlib"],
-            url:      "http://rogue.testcording.com/",
+            url:      "http://rogueplus.testcording.com/",
             width:    ns.SCREEN_WIDTH,
             height:   ns.SCREEN_HEIGHT,
             related:  "tmlib.js javascript testcording",

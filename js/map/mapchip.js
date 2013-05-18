@@ -15,6 +15,7 @@
         init: function(param) {
             this.chips     = param.chips;
             this.map       = param.map;
+            this.autotile  = param.autotile;
             this.collision = param.collision;
             this.frames    = [];
 
