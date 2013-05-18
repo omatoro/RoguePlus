@@ -16,6 +16,7 @@
 	    	var label = tm.app.Label(text + "", FONT_SIZE);
             label.fillStyle = FONT_STYLE;
             label.setAlign("center").setBaseline("middle");
+            label.fontFamily = "'Diesel', 'Consolas', 'Monaco', 'ＭＳ ゴシック'";
             this.label = label;
 
             // 文字列の横幅が取得できないので、仮に正確ではないが計算する
