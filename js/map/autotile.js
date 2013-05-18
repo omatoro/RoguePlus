@@ -15,11 +15,11 @@
      * |c|d|
      * +-+-+
      */
-    var IMAGE_TOPLEFT = tm.geom.Vector2(0, 0);
-    var TILE_SIZE = {
-        width: 16,
-        height: 16
-    };
+    // var IMAGE_TOPLEFT = tm.geom.Vector2(0, 0);
+    // var TILE_SIZE = {
+    //     width: 16,
+    //     height: 16
+    // };
     var TILE_PATTERN = {
         circle: {},
         column: {},
@@ -36,50 +36,50 @@
         // 円形のマップ情報
         TILE_PATTERN.circle[TILE_NAME[i]] = {}; // a,b,c,d
         TILE_PATTERN.circle[TILE_NAME[i]].id = i+1;
-        TILE_PATTERN.circle[TILE_NAME[i]].imagePosition = {
-            topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
-            bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 0) * TILE_SIZE.height),
-        };
+        // TILE_PATTERN.circle[TILE_NAME[i]].imagePosition = {
+        //     topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
+        //     bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 0) * TILE_SIZE.height),
+        // };
 
         // 縦の道となるマップ情報
         TILE_PATTERN.column[TILE_NAME[i]] = {}; // a,b,c,d
         TILE_PATTERN.column[TILE_NAME[i]].id = i+5;
-        TILE_PATTERN.column[TILE_NAME[i]].imagePosition = {
-            topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
-            bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 2) * TILE_SIZE.height),
-        };
+        // TILE_PATTERN.column[TILE_NAME[i]].imagePosition = {
+        //     topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
+        //     bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 2) * TILE_SIZE.height),
+        // };
         
         // 横の道となるマップ情報
         TILE_PATTERN.row[TILE_NAME[i]] = {}; // a,b,c,d
         TILE_PATTERN.row[TILE_NAME[i]].id = i+9;
-        TILE_PATTERN.row[TILE_NAME[i]].imagePosition = {
-            topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
-            bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 4) * TILE_SIZE.height),
-        };
+        // TILE_PATTERN.row[TILE_NAME[i]].imagePosition = {
+        //     topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
+        //     bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 4) * TILE_SIZE.height),
+        // };
 
         // 十字路となるマップ情報
         TILE_PATTERN.cross[TILE_NAME[i]] = {}; // a,b,c,d
         TILE_PATTERN.cross[TILE_NAME[i]].id = i+13;
-        TILE_PATTERN.cross[TILE_NAME[i]].imagePosition = {
-            topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
-            bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 6) * TILE_SIZE.height),
-        };
+        // TILE_PATTERN.cross[TILE_NAME[i]].imagePosition = {
+        //     topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
+        //     bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 6) * TILE_SIZE.height),
+        // };
 
         // 角がないマップ情報
         TILE_PATTERN.plain[TILE_NAME[i]] = {}; // a,b,c,d
         TILE_PATTERN.plain[TILE_NAME[i]].id = i+17;
-        TILE_PATTERN.plain[TILE_NAME[i]].imagePosition = {
-            topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
-            bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 8) * TILE_SIZE.height),
-        };
+        // TILE_PATTERN.plain[TILE_NAME[i]].imagePosition = {
+        //     topLeft:        IMAGE_TOPLEFT.x + ((i%2)            * TILE_SIZE.width),
+        //     bottomRight:    IMAGE_TOPLEFT.y + ((((i/2) |0) + 8) * TILE_SIZE.height),
+        // };
     }
 
     /**
      * 隣接しているマップから、どのタイルを選択するのかを決定する情報をパターンにしておく
      *
      * パターンを決定する条件
-     *  0: タイルが存在しない
-     *  1:　タイルが存在する
+     *  0: タイルが存在しないこと
+     *  1:　タイルが存在すること
      * -1: どちらでもよい
      */
     var MAP_PATTERN = {
