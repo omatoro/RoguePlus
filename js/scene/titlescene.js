@@ -1,5 +1,5 @@
 /**
- * タイトル画面
+ * TitleScene
  */
 (function(ns) {
 
@@ -8,7 +8,7 @@
 
         init : function() {
             this.superInit({
-                title :  "RogueLike",
+                title :  "RoguePlus",
                 width :  ns.SCREEN_WIDTH,
                 height : ns.SCREEN_HEIGHT
             });
