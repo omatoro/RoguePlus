@@ -343,7 +343,7 @@
                         player.addItem(getItem);
 
                         // 音
-                        tm.sound.SoundManager.get("openTreasure").play();
+                        tm.asset.AssetManager.get("openTreasure").clone().play();
                     }
                 }
             }

@@ -17,7 +17,13 @@
         }
 
         // シーンの切り替え
-        ns.app.replaceScene(ns.TitleScene());
+        var loadingScene = tm.app.LoadingScene({
+            width:      ns.app.width,
+            height:     ns.app.height,
+            assets:     TITLE_ASSETS,
+            nextScene:  ns.TitleScene,
+        });
+        ns.app.replaceScene(loadingScene);
 
         // tmlibの実行
         ns.app.run();

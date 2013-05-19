@@ -100,7 +100,7 @@
 		getDropItem: function () {
 			// hpが0になったら死亡
 			if (this.hp <= 0) {
-				tm.sound.SoundManager.get("enemydown").play();
+				tm.asset.AssetManager.get("enemydown").clone().play();
 				this.remove();
 				for (var i = 0; i < this.dropItemList.length; ++i) {
 					if (Math.rand(0, this.dropItemList[i].random) === 0) {
@@ -169,7 +169,7 @@
             this.slash.gotoAndPlay("slash");
 
             // 音
-            tm.sound.SoundManager.get("playerdamage").play();
+            tm.asset.AssetManager.get("playerdamage").clone().play();
 
             // 攻撃するポイントを作成
             var attackMapPosition = this.position.clone().add(attackScreenPosition);

@@ -22,7 +22,7 @@
             var objectNum = counterObject(param.chips);
             this.images = [];
             for (var i = 0; i < objectNum; ++i) {
-            	this.images.push(tm.graphics.TextureManager.get(param.chips[i].image));
+            	this.images.push(tm.asset.AssetManager.get(param.chips[i].image));
 
 	            if (this.images[i].loaded === false) {
 	                this.images[i].element.addEventListener("load", function() {

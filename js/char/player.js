@@ -101,7 +101,7 @@
 				return ;
 			}
 			this.hp += item.status.hp || 0;
-			tm.sound.SoundManager.get("eat").play();
+			tm.asset.AssetManager.get("eat").clone().play();
 			if (this.hp > this.maxhp) {
 				this.hp = this.maxhp;
 			}
@@ -124,7 +124,7 @@
 			this.mp = this.maxmp;
 
 			// 音
-			tm.sound.SoundManager.get("levelup").play();
+			tm.asset.AssetManager.get("levelup").clone().play();
 		},
 
 		addExp: function (exp) {
@@ -152,7 +152,7 @@
 		equipWeapon: function (item) {
 			if (item) {
 				this.equipedWeapon = item;
-				tm.sound.SoundManager.get("equip").play();
+				tm.asset.AssetManager.get("equip").clone().play();
 			}
 			else {
 				this.equipedWeapon = null;
@@ -181,7 +181,7 @@
 		equipArmor: function (item) {
 			if (item) {
 				this.equipedArmor = item;
-				tm.sound.SoundManager.get("equip").play();
+				tm.asset.AssetManager.get("equip").clone().play();
 			}
 			else {
 				this.equipedArmor = null;
@@ -224,14 +224,14 @@
 			// hpが0になったら死亡
 			if (this.hp <= 0) {
 				this._isGameOver = true;
-				tm.sound.SoundManager.get("playerdown").play();
+				tm.asset.AssetManager.get("playerdown").clone().play();
 			}
 
 			return damage;
 		},
 
 		attack: function () {
-			tm.sound.SoundManager.get("enemydamage").play();
+			tm.asset.AssetManager.get("enemydamage").clone().play();
 			return this.angle;
 		},
 

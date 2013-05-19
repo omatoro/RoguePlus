@@ -186,7 +186,7 @@
             statusButton.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT-30-50);
             this.statusButton = statusButton;
             statusButton.addEventListener("pointingend", function(e) {
-                tm.sound.SoundManager.get("openstatus").play();
+                tm.asset.AssetManager.get("openstatus").clone().play();
                 e.app.pushScene(ns.StatusScene(player));
             });
 
@@ -199,7 +199,7 @@
             this.addChild(statusButton);
 
             // サウンド：BGM
-            this.bgm = tm.sound.SoundManager.get("dungeon");
+            this.bgm = tm.asset.AssetManager.get("dungeon");
             this.bgm.loop = true;
             this.bgm.play();
 
@@ -234,7 +234,7 @@
             if (this.map.isNextStage()) {
                 ++ns.MainScene.STAGE_NUMBER;
                 this.bgm.stop();
-                tm.sound.SoundManager.get("downStairs").play();
+                tm.asset.AssetManager.get("downStairs").clone().play();
                 app.replaceScene(ns.MainScene(this.player, this.pad));
             }
 
@@ -247,7 +247,7 @@
             // ゲームクリアフラグがたったらゲーム終了
             if (this.stage.isGameClear()) {
                 this.bgm.stop();
-                tm.sound.SoundManager.get("levelup").play();
+                tm.asset.AssetManager.get("levelup").clone().play();
                 app.replaceScene(ns.EndScene(ns.MainScene.STAGE_NUMBER, this.player.getLevel(), true));
             }
         }
