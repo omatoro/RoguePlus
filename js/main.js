@@ -17,7 +17,7 @@
         }
 
         // シーンの切り替え
-        var loadingScene = tm.app.LoadingScene({
+        var loadingScene = ns.BarLoadingScene({
             width:      ns.app.width,
             height:     ns.app.height,
             assets:     TITLE_ASSETS,

@@ -98,7 +98,7 @@
             map.setEnemyGroup(enemyGroup);
 
             // 攻撃時のエフェクト
-            var ss = tm.app.SpriteSheet({
+            var slashSS = tm.app.SpriteSheet({
                 image: "slash",
                 frame: {
                     width:  65,
@@ -109,9 +109,21 @@
                     "slash": [0, 8]
                 }
             });
-            var slash = tm.app.AnimationSprite(120, 120, ss)
-            // this.slash = slash;
+            var slash = tm.app.AnimationSprite(120, 120, slashSS);
             slash.position.set(ns.SCREEN_WIDTH/2 + 10, ns.SCREEN_HEIGHT/2 + 10);
+
+            // 敵撃破時のエフェクト
+            var enemyDeadSS = tm.app.SpriteSheet({
+                image: "enemydead",
+                frame: {
+                    width:  64,
+                    height: 64,
+                    count: 40
+                },
+                animations: {
+                    "enemydead": [0, 40]
+                }
+            });
 
             // 攻撃ボタン
             var attackIcon = tm.app.Sprite(72, 72, "attackIcon");
@@ -170,6 +182,15 @@
                             var dropItem = ns.DropItem(itemData);
                             dropItem.position.set(enemy.x, enemy.y);
                             map.addItem(dropItem);
+                        }
+
+                        // 敵が死んでた
+                        if (enemy.isEnemyDead()) {
+                            // 死んだエフェクト
+                            var enemydead = tm.app.AnimationSprite(120, 120, enemyDeadSS);
+                            enemydead.position.set(enemy.x, enemy.y);
+                            map.setEnemyDeadAnimation(enemydead);
+                            enemydead.gotoAndPlay("enemydead");
                         }
 
                         // 表示場所を設定

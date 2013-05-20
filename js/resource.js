@@ -2,7 +2,13 @@
  * リソースの読み込み
  */
 tm.preload(function() {
-	tm.util.ScriptManager.loadStats();
+	//tm.util.ScriptManager.loadStats();
+
+	var STARTING_ASSETS = {
+		// ローディング
+		"loading":			"rsc/effect/loading2.png",
+	};
+	tm.asset.AssetManager.load(STARTING_ASSETS);
 });
 
 var TITLE_ASSETS = {
@@ -12,6 +18,7 @@ var TITLE_ASSETS = {
 
 	// エフェクト
 	"slash": 		"rsc/boldslash.png",
+	"enemydead":    "rsc/effect/enemydead.png",
 
 	// マップ
 	"Dirt1_pipo": 	"rsc/[A]Dirt1_pipo.png",
@@ -81,7 +88,6 @@ var TITLE_ASSETS = {
 	// "DragonGhost":		"rsc/[Monster]Dragon_Ghost.png",
 
 	// "Death":				"rsc/[Monster]Death_Uroboros.png",
-
 };
 
 var MAIN_ASSET = {

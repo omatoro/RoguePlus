@@ -103,6 +103,13 @@
             this.isEnemy = true;
             this.enemyGroup = enemyGroup;
             this.addChild(enemyGroup); // MAPの中心座標が0,0となる
+
+            this.enemyDeadAnimationGroup = tm.app.CanvasElement();
+            this.addChild(this.enemyDeadAnimationGroup);
+        },
+
+        setEnemyDeadAnimation: function (animation) {
+            this.enemyDeadAnimationGroup.addChild(animation);
         },
 
         setItemGroup: function (itemGroup) {

@@ -15,11 +15,11 @@
 
             this.addEventListener("pointingend", function(e) {
                 // シーンの切り替え
-                var loadingScene = tm.app.LoadingScene({
-                    width:      e.app.width,
-                    height:     e.app.height,
-                    assets:     MAIN_ASSET,
-                    nextScene:  ns.MainScene,
+                var loadingScene = ns.EffectLoadingScene({
+                    width:        e.app.width,
+                    height:       e.app.height,
+                    assets:       MAIN_ASSET,
+                    nextScene:    ns.MainScene,
                 });
                 e.app.replaceScene(loadingScene);
             });

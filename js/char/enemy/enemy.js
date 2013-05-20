@@ -100,8 +100,6 @@
 		getDropItem: function () {
 			// hpが0になったら死亡
 			if (this.hp <= 0) {
-				tm.asset.AssetManager.get("enemydown").clone().play();
-				this.remove();
 				for (var i = 0; i < this.dropItemList.length; ++i) {
 					if (Math.rand(0, this.dropItemList[i].random) === 0) {
 						return this.dropItemList[i].itemName;
@@ -109,6 +107,15 @@
 				}
 			}
 			return null;
+		},
+
+		isEnemyDead: function () {
+			if (this.hp <= 0) {
+				tm.asset.AssetManager.get("enemydown").clone().play();
+				this.remove();
+				return true;
+			}
+			return false;
 		},
 
 		isHit: function (point, radius) {
