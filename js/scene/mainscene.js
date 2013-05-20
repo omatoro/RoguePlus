@@ -174,7 +174,7 @@
 
                         // 経験値取得
                         var exp = enemy.getExp();
-                        player.addExp(exp);
+                        player.addExp(exp, e.app);
 
                         // アイテムドロップ
                         var itemData = itemList.get(enemy.getDropItem());

@@ -107,7 +107,7 @@
 			}
 		},
 
-		levelUp: function () {
+		levelUp: function (app) {
 			// パラメータ上昇
 			this.maxhp += Math.rand(0, 10);
 			this.maxmp += Math.rand(0, 5);
@@ -125,14 +125,17 @@
 
 			// 音
 			tm.asset.AssetManager.get("levelup").clone().play();
+
+			// ウィンドウ表示
+			app.currentScene.windows.add("レベルが" + this.level + "に上がった", 255, 255, 30);
 		},
 
-		addExp: function (exp) {
+		addExp: function (exp, app) {
 			this.exp += exp;
 			if (this.exp >= this.nextLevelExp) {
 				++this.level;
 				this.nextLevelExp = Math.ceil(this.nextLevelExp * 1.4);
-				this.levelUp();
+				this.levelUp(app);
 				this.addExp(0);
 			}
 		},

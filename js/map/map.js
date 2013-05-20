@@ -27,7 +27,7 @@
 			// マップの自動生成
             var mapSize = Math.rand(20, 31);
             // var mapSize = 10;
-			var map = ns.GenerateMap(mapSize, mapSize);
+			var map = ns.GenerateMap(20, 20);
 
             // 水の部分をオートタイル化する
             var autotile = ns.AutoTile(map.map);
@@ -340,11 +340,7 @@
                     var getItem = items[i].isHit(this.playerElement);
                     if (getItem !== null) {
                         // 表示場所を設定
-                        // var itemPosition = this.mapCenterToScreenTopLeft(itemPosition.x, itemPosition.y);
-                        // var itemEffect = ns.Baloon(getItem.name, 100, 255, 150, 80);
-                        // itemEffect.effectPositionSet(itemPosition.x + 10, itemPosition.y + 5);
-                        // app.currentScene.addChild(itemEffect);
-                        app.currentScene.windows.add(getItem.name);
+                        app.currentScene.windows.add(getItem.name + " を手に入れた");
 
                         // プレイヤーにアイテム追加(このままの処理だったらドロップアイテムインスタンスが生き続ける)
                         var player = app.currentScene.getChildByName("player");
