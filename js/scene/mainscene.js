@@ -213,6 +213,7 @@
 
             // 画面に追加
             this.addChild(map);
+            this.windows = ns.ManageSimpleWindows(this); // ウィンドウ
             this.addChild(pad);
             this.addChild(player);
             this.addChild(slash);
