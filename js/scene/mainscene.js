@@ -67,6 +67,14 @@
             player.setInputPad(pad);
             player.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT/2);
 
+            // セーブデータがあれば引き継ぐ
+            var saveData = this._loadSaveData();
+            if (saveData && !continuePlayer && !continuePad) {
+                var savedPlayer           = saveData.saveData.player;
+                ns.MainScene.STAGE_NUMBER = saveData.saveData.stairs;
+                player.dataLoad(savedPlayer);
+            }
+
             // マップ
             var map = ns.Map(pad);
             this.map = map;
@@ -126,7 +134,7 @@
             });
 
             // 攻撃ボタン
-            var attackIcon = tm.app.Sprite(72, 72, "attackIcon");
+            var attackIcon = tm.app.Sprite("attackIcon", 72, 72);
             var attackButton = ns.GlossyImageButton(200, 160, attackIcon, "green");
             attackButton.position.set(ns.SCREEN_WIDTH-50-50, ns.SCREEN_HEIGHT-30-50);
             this.attackButton = attackButton;
@@ -202,7 +210,7 @@
             });
 
             // ステータス画面への遷移ボタン
-            var statusIcon = tm.app.Sprite(72, 72, "statusIcon");
+            var statusIcon = tm.app.Sprite("statusIcon", 72, 72);
             var statusButton = ns.GlossyImageButton(200, 160, statusIcon, "blue");
             statusButton.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT-30-50);
             this.statusButton = statusButton;
@@ -257,22 +265,66 @@
                 ++ns.MainScene.STAGE_NUMBER;
                 this.bgm.stop();
                 tm.asset.AssetManager.get("downStairs").clone().play();
+                this._autoSave();
                 app.replaceScene(ns.MainScene(this.player, this.pad));
             }
 
             // ゲームオーバーフラグがたったらゲーム終了
             if (this.player.isGameOver()) {
                 this.bgm.stop();
+                this._deleteSaveData();
                 app.replaceScene(ns.EndScene(ns.MainScene.STAGE_NUMBER, this.player.getLevel(), false));
             }
 
             // ゲームクリアフラグがたったらゲーム終了
             if (this.stage.isGameClear()) {
                 this.bgm.stop();
+                this._deleteSaveData();
                 tm.asset.AssetManager.get("levelup").clone().play();
                 app.replaceScene(ns.EndScene(ns.MainScene.STAGE_NUMBER, this.player.getLevel(), true));
             }
-        }
+        },
+
+        _autoSave: function () {
+            // セーブデータを作成
+            var saveData = {
+                player: this.player.cloneToSave(),
+                stairs: ns.MainScene.STAGE_NUMBER,
+            };
+
+            var date = new Date();
+            var alldate = date.format("Y/m/d");
+            var year    = date.format("Y");
+            var month   = date.format("m");
+            var day     = date.format("d");
+
+            var memorizeData = {
+                date: {
+                    all: alldate,
+                    year: year,
+                    month: month,
+                    day: day,
+                },
+                saveData: saveData
+            };
+
+            localStorage["RoguePlus"] = JSON.stringify(memorizeData);
+        },
+
+        _loadSaveData: function () {
+            // ローカルストレージからデータを取得
+            var loadLocalStorage = localStorage["RoguePlus"];
+            if (loadLocalStorage) {
+                return JSON.parse(loadLocalStorage);
+            }
+            else {
+                return null;
+            }
+        },
+
+        _deleteSaveData: function () {
+            localStorage.removeItem("RoguePlus");
+        },
     });
 
     ns.MainScene.STAGE_NUMBER = 1;

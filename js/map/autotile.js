@@ -274,7 +274,6 @@
         	 こんな感じ
         	 */
         	this.map = map;
-        	console.dir(map);
 
         	// 返すデータを作成
         	// var mapdata = {
@@ -300,8 +299,6 @@
 
         	// オートタイルデータに変換する
         	this.autoTileMap = this.transformTile();
-
-        	console.dir(this.autoTileMap);
         },
 
 		/**

@@ -29,45 +29,7 @@
             }
             this.superInit(RESULT_PARAM);
 
-            // this.gameData = {
-            //     back: backNum,
-            //     speed: speed,
-            //     speedName: speedName,
-            //     quest: questNumber
-            // }
 
-            // // ローカルストレージからデータを取得
-            // var loadLocalStorage = localStorage["WEBack"];
-            // if (loadLocalStorage) {
-            //     loadLocalStorage = JSON.parse(loadLocalStorage);
-            // }
-            // else {
-            //     loadLocalStorage = {
-            //         data: []
-            //     };
-            // }
-
-            // var date = new Date();
-            // var alldate = date.format("Y/m/d");
-            // var year    = date.format("Y");
-            // var month   = date.format("m");
-            // var day     = date.format("d");
-
-            // memorizeData = {
-            //     date: {
-            //         all: alldate,
-            //         year: year,
-            //         month: month,
-            //         day: day,
-            //     },
-            //     score: score,
-            //     questNumber: questNumber,
-            //     back: backNum,
-            //     speed: speedName
-            // };
-
-            // loadLocalStorage.data.push(memorizeData);
-            // localStorage["WEBack"] = JSON.stringify(loadLocalStorage);
         },
 
         update : function () {

@@ -52,7 +52,6 @@
 
         update: function () {
             if (this.assets) {
-                console.log(this.loadedCounter);
                 this.bar.setBarLength((this.assets._loadedCounter - this.loadedCounter) * this.barUnit);
             }
         },

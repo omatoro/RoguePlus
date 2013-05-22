@@ -12,7 +12,7 @@
             this._refresh();
 
             // 画像
-            var face = tm.app.Sprite(192, 192, "playerFace");
+            var face = tm.app.Sprite("playerFace", 192, 192);
             face.position.set(0, 0);
 
             // 画面に追加

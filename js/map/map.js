@@ -88,7 +88,7 @@
 
         setStairs: function () {
             // 階段
-            var stairs = tm.app.Sprite(64, 64, "stairs");
+            var stairs = tm.app.Sprite("stairs", 64, 64);
             var stairsPosition = this.getRandomSafeMapChipPosition();
             stairsPosition = this.mapLeftTopToMapCenter(
                 stairsPosition.x * this.mapChipWidth + this.mapChipWidth/2,
