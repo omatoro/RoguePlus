@@ -12,16 +12,19 @@
         ns.app.background = "rgb(0, 0, 0)"; // 背景色をセット
 
         // デバッグ時のみ
-        if (ns.DEBUG === true) {
+        if (ns.QUERY_PARAM.stats == "true") {
             ns.app.enableStats();
         }
+
+        var targetScene = ns[ns.QUERY_PARAM.scene] || ns.TitleScene;
+        var assets = ASSET_MAP[ns.QUERY_PARAM.scene] || TITLE_ASSETS;
 
         // シーンの切り替え
         var loadingScene = ns.BarLoadingScene({
             width:      ns.app.width,
             height:     ns.app.height,
-            assets:     TITLE_ASSETS,
-            nextScene:  ns.TitleScene,
+            assets:     assets,
+            nextScene:  targetScene,
         });
         ns.app.replaceScene(loadingScene);
 

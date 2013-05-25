@@ -5,6 +5,9 @@ var game = game || {};
 
 (function(ns) {
 
+    ns.QUERY_PARAM = tm.util.QueryString.parse(location.search.substr(1));
+    console.dir(ns.QUERY_PARAM);
+
     // デバッグ時定数
     ns.DEBUG = true;
 

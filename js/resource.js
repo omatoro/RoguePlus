@@ -12,6 +12,9 @@ tm.preload(function() {
 });
 
 var TITLE_ASSETS = {
+};
+
+var MAIN_ASSET = {
 	// プレイヤー
 	"player": 		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/player.png",
 	"playerFace": 	"http://rawgithub.com/omatoro/RoguePlus/master/rsc/char.png",
@@ -88,9 +91,7 @@ var TITLE_ASSETS = {
 	// "DragonGhost":		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/[Monster]Dragon_Ghost.png",
 
 	// "Death":				"http://rawgithub.com/omatoro/RoguePlus/master/rsc/[Monster]Death_Uroboros.png",
-};
-
-var MAIN_ASSET = {
+	
 	// 音楽
 	"levelup":		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/[Action]Chinese_blade1_Komori.mp3",
 	"openTreasure":	"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/[Action]Door01_Isooki.mp3",
@@ -110,4 +111,12 @@ var MAIN_ASSET = {
 var RESULT_ASSETS = {
 	"gameclear":	"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/Fanfare01_Koya.mp3",
 };
+
+var ASSET_MAP = {
+	"TitleScene": TITLE_ASSETS,
+	"MainScene": MAIN_ASSET,
+	"ResultScene": RESULT_ASSETS,
+};
+
+
 
