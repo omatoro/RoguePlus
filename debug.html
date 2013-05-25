@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta http-equiv="content-style-type" content="text/css">
+        <meta http-equiv="content-script-type" content="text/javascript">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <link rel="apple-touch-icon" href="rsc/Icon@2x.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="rsc/Icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="rsc/Icon-72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="rsc/Icon@2x.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="rsc/Icon@2x.png" />
+
+        <title>debug | RoguePlus</title>
+
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.css" rel="stylesheet">
+        <style>
+    	body {
+    		padding-top: 60px;
+    	}
+        </style>
+
+        <script src="http://rawgithub.com/phi1618/tmlib.js/develop/build/tmlib.js"></script>
+        <script>
+    	tm.main(function() {
+    		var $ = tm.dom.Element;
+    		var goBtn = $("#go");
+    		goBtn.event.click(function() {
+    			var url = "index.html";
+    			var param = {
+    				scene: $("#scene").value,
+    				stats: $("#stats").element.checked,
+    			};
+    			var paramStr = tm.util.QueryString.stringify(param);
+
+    			url += "?" + tm.util.QueryString.stringify(param);
+
+    			console.log(url);
+    			window.open(url);
+    		});
+    	});
+        </script>
+    </head>
+    <body>
+    	<div class="container">
+    		<h2>Debug Menu</h2>
+    		<form class="form-horizontal" onsubmit="return false;">
+				<div class="control-group">
+					<label class="control-label" for="scene">Scene</label>
+					<div class="controls">
+				        <select id="scene">
+				            <option>TitleScene</option>
+				            <option>MainScene</option>
+				            <option>EndScene</option>
+				        </select>
+						<span class="help-inline">開始シーンを選んでください</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="stats">Stats</label>
+					<div class="controls">
+						<input id="stats" type="checkbox" value="">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button id="go" class="btn btn-primary">Go</button>
+					</div>
+				</div>
+    		</form>
+    	</div>
+    </body>
+</html>
