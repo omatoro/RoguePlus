@@ -141,9 +141,10 @@
             var attackTiming = ns.Timing(150);
             this.attackTiming = attackTiming;
 
-            attackButton.addEventListener("pointingmove", function(e) {
+            // 攻撃時の処理
+            var attackMethod = function (app) {
                 // タイミングが来たら攻撃可能
-                attackTiming.resetLimit(player.getAttackSpeed(e.app.fps));
+                attackTiming.resetLimit(player.getAttackSpeed(app.fps));
                 if (attackTiming.is() === false) {
                     return ;
                 }
@@ -182,7 +183,7 @@
 
                         // 経験値取得
                         var exp = enemy.getExp();
-                        player.addExp(exp, e.app);
+                        player.addExp(exp, app);
 
                         // アイテムドロップ
                         var itemData = itemList.get(enemy.getDropItem());
@@ -204,9 +205,14 @@
                         // 表示場所を設定
                         var damagePosition = map.mapCenterToScreenTopLeft(enemy.x, enemy.y);
                         damageEffect.effectPositionSet(damagePosition.x + 10, damagePosition.y + 5);
-                        e.app.currentScene.addChild(damageEffect);
+                        app.currentScene.addChild(damageEffect);
                     }
                 }
+            };
+            this.attackMethod = attackMethod;
+
+            attackButton.addEventListener("pointingmove", function(e) {
+                attackMethod(e.app);
             });
 
             // ステータス画面への遷移ボタン
@@ -259,6 +265,12 @@
 
             // ステータスの描画
             this.drawStatus();
+
+            // キーボード押下時の攻撃
+            if (app.keyboard.getKey("z")) {
+                var attackTiming = this.attackTiming;
+                this.attackMethod(app);
+            }
 
             // 次のステージに進むフラグがたったらマップ更新
             if (this.map.isNextStage()) {
