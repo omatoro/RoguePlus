@@ -8,9 +8,6 @@ var game = game || {};
     ns.QUERY_PARAM = tm.util.QueryString.parse(location.search.substr(1));
     console.dir(ns.QUERY_PARAM);
 
-    // デバッグ時定数
-    ns.DEBUG = true;
-
     // スクリーンサイズ
     ns.SCREEN_WIDTH  = 640;
     ns.SCREEN_HEIGHT = 960;

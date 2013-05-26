@@ -7,7 +7,7 @@
             score: 256,
             msg:      "【Rogue+】",
             hashtags: ["omatoro", "Rogue", "tmlib"],
-            url:      "http://rogueplus.testcording.com/",
+            url:      "http://omatoro.github.io/RoguePlus",
             width:    ns.SCREEN_WIDTH,
             height:   ns.SCREEN_HEIGHT,
             related:  "tmlib.js javascript testcording",
