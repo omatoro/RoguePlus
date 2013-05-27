@@ -12,10 +12,9 @@ tm.preload(function() {
 });
 
 var TITLE_ASSETS = {
+	// BGM
 	"dungeon":		"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/sound/Dungeon02_Koya.mp3",
-};
 
-var MAIN_ASSET = {
 	// プレイヤー
 	"player": 		"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/player.png",
 	"playerFace": 	"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/char.png",
@@ -23,7 +22,9 @@ var MAIN_ASSET = {
 	// エフェクト
 	"slash": 		"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/boldslash.png",
 	"enemydead":    "http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/effect/enemydead.png",
+};
 
+var MAIN_ASSET = {
 	// マップ
 	"Dirt1_pipo": 	"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/[A]Dirt1_pipo.png",
 	"Grass1_pipo": 	"http://rawgithub.com/omatoro/RoguePlus/gh-pages/rsc/[A]Grass1_pipo.png",
