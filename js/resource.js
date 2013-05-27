@@ -12,6 +12,7 @@ tm.preload(function() {
 });
 
 var TITLE_ASSETS = {
+	"dungeon":		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/Dungeon02_Koya.mp3",
 };
 
 var MAIN_ASSET = {
@@ -105,7 +106,6 @@ var MAIN_ASSET = {
 	"openstatus":	"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/[System]Click_Komori.mp3",
 	"equip":		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/[Action]Switch2_Komori.mp3",
 	"eat":			"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/[Action]Eating_soup_Komori.mp3",
-	"dungeon":		"http://rawgithub.com/omatoro/RoguePlus/master/rsc/sound/Dungeon02_Koya.mp3",
 };
 
 var RESULT_ASSETS = {
