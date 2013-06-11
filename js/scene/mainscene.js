@@ -50,7 +50,7 @@
         }
     };
 
-    ns.MainScene = tm.createClass({
+    tm.define("ns.MainScene", {
         superClass : tm.app.Scene,
 
         init : function(continuePlayer, continuePad) {

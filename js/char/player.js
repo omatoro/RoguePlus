@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.Player = tm.createClass({
+	tm.define("ns.Player", {
 		superClass : ns.AnimationCharactor,
 
 		init: function () {

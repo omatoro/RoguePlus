@@ -15,7 +15,7 @@
 	var WINDOW_DRAW_POSITION_X = WINDOW_WIDTH/2  + WINDOW_PADDING;
 	var WINDOW_DRAW_POSITION_Y = WINDOW_HEIGHT/2 + WINDOW_PADDING + 100;
 
-	ns.SimpleMessageWindow = tm.createClass({
+	tm.define("ns.SimpleMessageWindow", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB) {

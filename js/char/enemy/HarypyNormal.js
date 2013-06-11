@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.HarypyNormal = tm.createClass({
+	tm.define("ns.HarypyNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

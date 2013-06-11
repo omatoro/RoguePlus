@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.GolemGhost = tm.createClass({
+	tm.define("ns.GolemGhost", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

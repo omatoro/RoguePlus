@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.Death = tm.createClass({
+	tm.define("ns.Death", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

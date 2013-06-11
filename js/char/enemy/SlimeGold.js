@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.SlimeGold = tm.createClass({
+	tm.define("ns.SlimeGold", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

@@ -98,7 +98,7 @@
         }
     };
 
-    ns.Status = tm.createClass({
+    tm.define("ns.Status", {
         superClass : tm.app.Shape,
 
         init: function(parent) {

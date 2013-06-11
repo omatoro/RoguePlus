@@ -11,7 +11,7 @@
 	    return count;
 	};
 
-    ns.MapChip = tm.createClass({
+    tm.define("ns.MapChip", {
         init: function(param) {
             this.chips     = param.chips;
             this.map       = param.map;

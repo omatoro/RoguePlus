@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.GargoyleRed = tm.createClass({
+	tm.define("ns.GargoyleRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

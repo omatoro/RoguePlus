@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-    ns.MapSprite = tm.createClass({
+    tm.define("ns.MapSprite", {
 
         superClass: tm.app.Shape,
 

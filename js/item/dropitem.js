@@ -9,7 +9,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 4; // 枚数
 
-	ns.DropItem = tm.createClass({
+	tm.define("ns.DropItem", {
 		superClass : tm.app.AnimationSprite,
 
 		init: function (item, image, drawImageScaleSize) {

@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-    ns.Face = tm.createClass({
+    tm.define("ns.Face", {
         superClass : tm.app.Shape,
 
         init: function(parent) {

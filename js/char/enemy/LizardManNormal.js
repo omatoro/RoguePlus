@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.LizardManNormal = tm.createClass({
+	tm.define("ns.LizardManNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

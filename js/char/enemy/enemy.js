@@ -5,7 +5,7 @@
 
 	var ATTACK_LIMIT_COUNTER = 90;
 
-	ns.Enemy = tm.createClass({
+	tm.define("ns.Enemy", {
 		superClass : ns.AnimationCharactor,
 
 		init: function (image, imageData, drawImageScaleSize, player, map) {

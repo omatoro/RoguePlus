@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.GhostNormal = tm.createClass({
+	tm.define("ns.GhostNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

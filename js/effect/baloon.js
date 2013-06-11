@@ -8,7 +8,7 @@
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;
 
-	ns.Baloon = tm.createClass({
+	tm.define("ns.Baloon", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB, far) {

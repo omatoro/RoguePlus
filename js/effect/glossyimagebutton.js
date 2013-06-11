@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.GlossyImageButton = tm.createClass({
+	tm.define("ns.GlossyImageButton", {
 	    superClass: tm.app.Shape,
 
 	    init: function(width, height, image, backgroundColor) {

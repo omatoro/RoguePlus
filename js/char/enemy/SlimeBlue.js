@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.SlimeBlue = tm.createClass({
+	tm.define("ns.SlimeBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
