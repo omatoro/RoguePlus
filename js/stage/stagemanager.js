@@ -161,7 +161,7 @@
         ]
     ];
 
-	ns.StageManager = tm.createClass({
+	tm.define("ns.StageManager", {
 		init: function (stageNum, enemyGroup, player, map) {
             this._isGameClear = false;
             if (STAGE_MAKING.length < stageNum) {

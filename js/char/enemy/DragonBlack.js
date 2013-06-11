@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.DragonBlack = tm.createClass({
+	tm.define("ns.DragonBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

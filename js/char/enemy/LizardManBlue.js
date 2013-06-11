@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.LizardManBlue = tm.createClass({
+	tm.define("ns.LizardManBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

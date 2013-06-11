@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-    ns.TitleScene = tm.createClass({
+    tm.define("ns.TitleScene", {
         superClass : tm.app.TitleScene,
 
         init : function() {

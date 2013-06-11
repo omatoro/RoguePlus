@@ -15,7 +15,7 @@
 	var WINDOW_DRAW_POSITION_X = WINDOW_WIDTH/2  + WINDOW_PADDING;
 	var WINDOW_DRAW_POSITION_Y = WINDOW_HEIGHT/2 + WINDOW_PADDING + 100;
 
-	ns.SimpleMessageWindow = tm.createClass({
+	tm.define("ns.SimpleMessageWindow", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB) {
@@ -114,7 +114,7 @@
 	var WINDOW_DRAW_POSITION_X = WINDOW_WIDTH/2  + WINDOW_PADDING;
 	var WINDOW_DRAW_POSITION_Y = WINDOW_HEIGHT/2 + WINDOW_PADDING + 100;
 
-	ns.ManageSimpleWindows = tm.createClass({
+	tm.define("ns.ManageSimpleWindows", {
 
 	    init: function(scene) {
 	    	this.windowGroup = tm.app.CanvasElement();
@@ -142,7 +142,7 @@
  */
 (function(ns) {
 
-	ns.OnePlayAnimationSprite = tm.createClass({
+	tm.define("ns.OnePlayAnimationSprite", {
 	    superClass: tm.app.AnimationSprite,
 
 	    init: function(width, height, ss) {
@@ -167,7 +167,7 @@
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;
 
-	ns.DamagedNumber = tm.createClass({
+	tm.define("ns.DamagedNumber", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB, strokeColorR, strokeColorG, strokeColorB, far) {
@@ -260,7 +260,7 @@
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;
 
-	ns.Baloon = tm.createClass({
+	tm.define("ns.Baloon", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB, far) {
@@ -340,7 +340,7 @@
  */
 (function(ns) {
 
-	ns.GlossyImageButton = tm.createClass({
+	tm.define("ns.GlossyImageButton", {
 	    superClass: tm.app.Shape,
 
 	    init: function(width, height, image, backgroundColor) {
@@ -429,7 +429,7 @@
         }
     };
 
-    ns.GenerateMap = tm.createClass({
+    tm.define("ns.GenerateMap", {
 
         init: function (mapChipWidthNum, mapChipHeightNum) {
             // 生成する配列の初期化
@@ -940,7 +940,7 @@
     /**
      * 描画するマップチップの場所を自動選択する
      */
-    ns.AutoTile = tm.createClass({
+    tm.define("ns.AutoTile", {
         init: function (map, options) {
         	// レイヤーの初期化
         	// var layer1 = _initLayerMap(createdMap);
@@ -1150,7 +1150,7 @@
 	    return count;
 	};
 
-    ns.MapChip = tm.createClass({
+    tm.define("ns.MapChip", {
         init: function(param) {
             this.chips     = param.chips;
             this.map       = param.map;
@@ -1207,7 +1207,7 @@
  */
 (function(ns) {
 
-    ns.MapSprite = tm.createClass({
+    tm.define("ns.MapSprite", {
 
         superClass: tm.app.Shape,
 
@@ -1407,7 +1407,7 @@
     var HIT_LEFT  = 0x04;
     var HIT_RIGHT = 0x08;
 
-	ns.Map = tm.createClass({
+	tm.define("ns.Map", {
 		superClass : ns.MapSprite,
 
 		init: function (pad) {
@@ -1787,7 +1787,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 24; // 枚数
 
-    ns.AnimationCharactor = tm.createClass({
+    tm.define("ns.AnimationCharactor", {
         superClass : tm.app.AnimationSprite,
 
         init: function (imageName, frame, drawImageScaleSize) {
@@ -1974,7 +1974,7 @@
  */
 (function(ns) {
 
-	ns.Player = tm.createClass({
+	tm.define("ns.Player", {
 		superClass : ns.AnimationCharactor,
 
 		init: function () {
@@ -2312,7 +2312,7 @@
 
 	var ATTACK_LIMIT_COUNTER = 90;
 
-	ns.Enemy = tm.createClass({
+	tm.define("ns.Enemy", {
 		superClass : ns.AnimationCharactor,
 
 		init: function (image, imageData, drawImageScaleSize, player, map) {
@@ -2561,7 +2561,7 @@
  */
 (function(ns) {
 
-	ns.SlimeBlue = tm.createClass({
+	tm.define("ns.SlimeBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2610,7 +2610,7 @@
  */
 (function(ns) {
 
-	ns.SlimeGreen = tm.createClass({
+	tm.define("ns.SlimeGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2659,7 +2659,7 @@
  */
 (function(ns) {
 
-	ns.SlimeRed = tm.createClass({
+	tm.define("ns.SlimeRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2705,7 +2705,7 @@
  */
 (function(ns) {
 
-	ns.SlimeGold = tm.createClass({
+	tm.define("ns.SlimeGold", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2748,7 +2748,7 @@
  */
 (function(ns) {
 
-	ns.SmallBatBlack = tm.createClass({
+	tm.define("ns.SmallBatBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2797,7 +2797,7 @@
  */
 (function(ns) {
 
-	ns.SmallBatGreen = tm.createClass({
+	tm.define("ns.SmallBatGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2843,7 +2843,7 @@
  */
 (function(ns) {
 
-	ns.SmallBatRed = tm.createClass({
+	tm.define("ns.SmallBatRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2886,7 +2886,7 @@
  */
 (function(ns) {
 
-	ns.SmallBatGhost = tm.createClass({
+	tm.define("ns.SmallBatGhost", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2929,7 +2929,7 @@
  */
 (function(ns) {
 
-	ns.GoblinGrey = tm.createClass({
+	tm.define("ns.GoblinGrey", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -2978,7 +2978,7 @@
  */
 (function(ns) {
 
-	ns.GoblinGreen = tm.createClass({
+	tm.define("ns.GoblinGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3024,7 +3024,7 @@
  */
 (function(ns) {
 
-	ns.GoblinRed = tm.createClass({
+	tm.define("ns.GoblinRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3067,7 +3067,7 @@
  */
 (function(ns) {
 
-	ns.BatBlack = tm.createClass({
+	tm.define("ns.BatBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3116,7 +3116,7 @@
  */
 (function(ns) {
 
-	ns.BatGreen = tm.createClass({
+	tm.define("ns.BatGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3159,7 +3159,7 @@
  */
 (function(ns) {
 
-	ns.BatBlue = tm.createClass({
+	tm.define("ns.BatBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3202,7 +3202,7 @@
  */
 (function(ns) {
 
-	ns.BatRed = tm.createClass({
+	tm.define("ns.BatRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3245,7 +3245,7 @@
  */
 (function(ns) {
 
-	ns.BatWhite = tm.createClass({
+	tm.define("ns.BatWhite", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3288,7 +3288,7 @@
  */
 (function(ns) {
 
-	ns.SkeltonNormal = tm.createClass({
+	tm.define("ns.SkeltonNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3340,7 +3340,7 @@
  */
 (function(ns) {
 
-	ns.SkeltonGreen = tm.createClass({
+	tm.define("ns.SkeltonGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3383,7 +3383,7 @@
  */
 (function(ns) {
 
-	ns.SkeltonBlue = tm.createClass({
+	tm.define("ns.SkeltonBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3426,7 +3426,7 @@
  */
 (function(ns) {
 
-	ns.SkeltonRed = tm.createClass({
+	tm.define("ns.SkeltonRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3469,7 +3469,7 @@
  */
 (function(ns) {
 
-	ns.HarypyNormal = tm.createClass({
+	tm.define("ns.HarypyNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3515,7 +3515,7 @@
  */
 (function(ns) {
 
-	ns.LizardManNormal = tm.createClass({
+	tm.define("ns.LizardManNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3564,7 +3564,7 @@
  */
 (function(ns) {
 
-	ns.LizardManBlue = tm.createClass({
+	tm.define("ns.LizardManBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3607,7 +3607,7 @@
  */
 (function(ns) {
 
-	ns.LizardManRed = tm.createClass({
+	tm.define("ns.LizardManRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3650,7 +3650,7 @@
  */
 (function(ns) {
 
-	ns.ZombieNormal = tm.createClass({
+	tm.define("ns.ZombieNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3693,7 +3693,7 @@
  */
 (function(ns) {
 
-	ns.ZombieRed = tm.createClass({
+	tm.define("ns.ZombieRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3736,7 +3736,7 @@
  */
 (function(ns) {
 
-	ns.GolemNormal = tm.createClass({
+	tm.define("ns.GolemNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3779,7 +3779,7 @@
  */
 (function(ns) {
 
-	ns.GolemGreen = tm.createClass({
+	tm.define("ns.GolemGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3822,7 +3822,7 @@
  */
 (function(ns) {
 
-	ns.GolemBlue = tm.createClass({
+	tm.define("ns.GolemBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3865,7 +3865,7 @@
  */
 (function(ns) {
 
-	ns.GolemRed = tm.createClass({
+	tm.define("ns.GolemRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3908,7 +3908,7 @@
  */
 (function(ns) {
 
-	ns.GolemGhost = tm.createClass({
+	tm.define("ns.GolemGhost", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3951,7 +3951,7 @@
  */
 (function(ns) {
 
-	ns.GhostNormal = tm.createClass({
+	tm.define("ns.GhostNormal", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -3994,7 +3994,7 @@
  */
 (function(ns) {
 
-	ns.GargoyleBlack = tm.createClass({
+	tm.define("ns.GargoyleBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4037,7 +4037,7 @@
  */
 (function(ns) {
 
-	ns.GargoyleRed = tm.createClass({
+	tm.define("ns.GargoyleRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4080,7 +4080,7 @@
  */
 (function(ns) {
 
-	ns.DragonGreen = tm.createClass({
+	tm.define("ns.DragonGreen", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4126,7 +4126,7 @@
  */
 (function(ns) {
 
-	ns.DragonBlue = tm.createClass({
+	tm.define("ns.DragonBlue", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4169,7 +4169,7 @@
  */
 (function(ns) {
 
-	ns.DragonRed = tm.createClass({
+	tm.define("ns.DragonRed", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4212,7 +4212,7 @@
  */
 (function(ns) {
 
-	ns.DragonBlack = tm.createClass({
+	tm.define("ns.DragonBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4255,7 +4255,7 @@
  */
 (function(ns) {
 
-	ns.DragonWhite = tm.createClass({
+	tm.define("ns.DragonWhite", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4298,7 +4298,7 @@
  */
 (function(ns) {
 
-	ns.DragonGhost = tm.createClass({
+	tm.define("ns.DragonGhost", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4341,7 +4341,7 @@
  */
 (function(ns) {
 
-	ns.Death = tm.createClass({
+	tm.define("ns.Death", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {
@@ -4657,7 +4657,7 @@
 		]
 	};
 
-	ns.ItemList = tm.createClass({
+	tm.define("ns.ItemList", {
 		superClass : tm.app.CanvasElement,
 
 		init: function () {
@@ -4690,7 +4690,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 4; // 枚数
 
-	ns.DropItem = tm.createClass({
+	tm.define("ns.DropItem", {
 		superClass : tm.app.AnimationSprite,
 
 		init: function (item, image, drawImageScaleSize) {
@@ -4846,7 +4846,7 @@
         }
     };
 
-    ns.Status = tm.createClass({
+    tm.define("ns.Status", {
         superClass : tm.app.Shape,
 
         init: function(parent) {
@@ -5133,7 +5133,7 @@
  */
 (function(ns) {
 
-    ns.Face = tm.createClass({
+    tm.define("ns.Face", {
         superClass : tm.app.Shape,
 
         init: function(parent) {
@@ -5324,7 +5324,7 @@
         ]
     ];
 
-	ns.StageManager = tm.createClass({
+	tm.define("ns.StageManager", {
 		init: function (stageNum, enemyGroup, player, map) {
             this._isGameClear = false;
             if (STAGE_MAKING.length < stageNum) {
@@ -5371,7 +5371,7 @@
         height: 465,
     };
     
-    ns.BarLoadingScene = tm.createClass({
+    tm.define("ns.BarLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {
@@ -5432,7 +5432,7 @@
         height: 465,
     };
     
-    ns.EffectLoadingScene = tm.createClass({
+    tm.define("ns.EffectLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {
@@ -5506,7 +5506,7 @@
  */
 (function(ns) {
 
-    ns.TitleScene = tm.createClass({
+    tm.define("ns.TitleScene", {
         superClass : tm.app.TitleScene,
 
         init : function() {
@@ -5582,7 +5582,7 @@
         }
     };
 
-    ns.MainScene = tm.createClass({
+    tm.define("ns.MainScene", {
         superClass : tm.app.Scene,
 
         init : function(continuePlayer, continuePad) {
@@ -5879,7 +5879,7 @@
  */
 (function(ns) {
 
-    ns.StatusScene = tm.createClass({
+    tm.define("ns.StatusScene", {
         superClass : tm.app.Scene,
 
         init : function(player) {
@@ -5917,7 +5917,7 @@
             related:  "tmlib.js javascript testcording",
     };
 
-    ns.EndScene = tm.createClass({
+    tm.define("ns.EndScene", {
 
         superClass : tm.app.ResultScene,
 

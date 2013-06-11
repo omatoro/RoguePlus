@@ -13,7 +13,7 @@
             related:  "tmlib.js javascript testcording",
     };
 
-    ns.EndScene = tm.createClass({
+    tm.define("ns.EndScene", {
 
         superClass : tm.app.ResultScene,
 

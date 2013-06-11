@@ -8,7 +8,7 @@
         height: 465,
     };
     
-    ns.EffectLoadingScene = tm.createClass({
+    tm.define("ns.EffectLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {

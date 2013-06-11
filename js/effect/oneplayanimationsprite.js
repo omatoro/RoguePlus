@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.OnePlayAnimationSprite = tm.createClass({
+	tm.define("ns.OnePlayAnimationSprite", {
 	    superClass: tm.app.AnimationSprite,
 
 	    init: function(width, height, ss) {

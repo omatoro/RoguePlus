@@ -33,7 +33,7 @@
         }
     };
 
-    ns.GenerateMap = tm.createClass({
+    tm.define("ns.GenerateMap", {
 
         init: function (mapChipWidthNum, mapChipHeightNum) {
             // 生成する配列の初期化

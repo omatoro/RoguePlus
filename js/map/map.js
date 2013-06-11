@@ -20,7 +20,7 @@
     var HIT_LEFT  = 0x04;
     var HIT_RIGHT = 0x08;
 
-	ns.Map = tm.createClass({
+	tm.define("ns.Map", {
 		superClass : ns.MapSprite,
 
 		init: function (pad) {

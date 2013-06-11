@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-	ns.SmallBatBlack = tm.createClass({
+	tm.define("ns.SmallBatBlack", {
 		superClass : ns.Enemy,
 
 		init: function (player, map) {

@@ -255,7 +255,7 @@
     /**
      * 描画するマップチップの場所を自動選択する
      */
-    ns.AutoTile = tm.createClass({
+    tm.define("ns.AutoTile", {
         init: function (map, options) {
         	// レイヤーの初期化
         	// var layer1 = _initLayerMap(createdMap);

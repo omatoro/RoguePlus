@@ -29,7 +29,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 24; // 枚数
 
-    ns.AnimationCharactor = tm.createClass({
+    tm.define("ns.AnimationCharactor", {
         superClass : tm.app.AnimationSprite,
 
         init: function (imageName, frame, drawImageScaleSize) {

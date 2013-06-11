@@ -8,7 +8,7 @@
         height: 465,
     };
     
-    ns.BarLoadingScene = tm.createClass({
+    tm.define("ns.BarLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {

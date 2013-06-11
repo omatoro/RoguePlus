@@ -3,7 +3,7 @@
  */
 (function(ns) {
 
-    ns.StatusScene = tm.createClass({
+    tm.define("ns.StatusScene", {
         superClass : tm.app.Scene,
 
         init : function(player) {

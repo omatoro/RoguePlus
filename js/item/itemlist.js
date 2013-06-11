@@ -276,7 +276,7 @@
 		]
 	};
 
-	ns.ItemList = tm.createClass({
+	tm.define("ns.ItemList", {
 		superClass : tm.app.CanvasElement,
 
 		init: function () {
