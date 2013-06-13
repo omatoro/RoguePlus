@@ -1,7 +1,7 @@
 /*
  * SimpleMessageWindow
  */
-(function(ns) {
+(function(game) {
 
 	var FONT_SIZE    = 12;
 	var FONT_STYLE   = "rgba(255, 255, 255, 0.0)";
@@ -15,7 +15,7 @@
 	var WINDOW_DRAW_POSITION_X = WINDOW_WIDTH/2  + WINDOW_PADDING;
 	var WINDOW_DRAW_POSITION_Y = WINDOW_HEIGHT/2 + WINDOW_PADDING + 100;
 
-	tm.define("ns.SimpleMessageWindow", {
+	tm.define("game.SimpleMessageWindow", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB) {
@@ -105,7 +105,7 @@
 /*
  * ManageSimpleWindows
  */
-(function(ns) {
+(function(game) {
 
 	var WINDOW_WIDTH = 200;
 	var WINDOW_HEIGHT = 70;
@@ -114,7 +114,7 @@
 	var WINDOW_DRAW_POSITION_X = WINDOW_WIDTH/2  + WINDOW_PADDING;
 	var WINDOW_DRAW_POSITION_Y = WINDOW_HEIGHT/2 + WINDOW_PADDING + 100;
 
-	tm.define("ns.ManageSimpleWindows", {
+	tm.define("game.ManageSimpleWindows", {
 
 	    init: function(scene) {
 	    	this.windowGroup = tm.app.CanvasElement();
@@ -127,7 +127,7 @@
 	    		this.windowGroup.children[i].moveby(0, WINDOW_HEIGHT);
 	    	}
 	    	// ウィンドウを追加
-	    	var simpleWindow = ns.SimpleMessageWindow(text, colorR, colorG, colorB);
+	    	var simpleWindow = game.SimpleMessageWindow(text, colorR, colorG, colorB);
 	    	simpleWindow.position.set(WINDOW_DRAW_POSITION_X, WINDOW_DRAW_POSITION_Y);
 	    	this.windowGroup.addChild(simpleWindow);
 	    },
@@ -140,9 +140,9 @@
 /*
  * OnePlayAnimationSprite
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.OnePlayAnimationSprite", {
+	tm.define("game.OnePlayAnimationSprite", {
 	    superClass: tm.app.AnimationSprite,
 
 	    init: function(width, height, ss) {
@@ -160,14 +160,14 @@
 /*
  * DamagedNumber
  */
-(function(ns) {
+(function(game) {
 
 	var FONT_SIZE    = 32;
 	var FONT_STYLE   = "rgba(255, 255, 255, 0.0)";
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;
 
-	tm.define("ns.DamagedNumber", {
+	tm.define("game.DamagedNumber", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB, strokeColorR, strokeColorG, strokeColorB, far) {
@@ -253,14 +253,14 @@
 /*
  * Baloon
  */
-(function(ns) {
+(function(game) {
 
 	var FONT_SIZE    = 30;
 	var FONT_STYLE   = "rgba(20, 20, 20, 0.0)";
 	var FONT_PADDING = 0;
 	var FONT_LEFT_PADDING = 0;
 
-	tm.define("ns.Baloon", {
+	tm.define("game.Baloon", {
 	    superClass: tm.app.Shape,
 
 	    init: function(text, colorR, colorG, colorB, far) {
@@ -338,9 +338,9 @@
 /*
  * GlossyImageButton
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GlossyImageButton", {
+	tm.define("game.GlossyImageButton", {
 	    superClass: tm.app.Shape,
 
 	    init: function(width, height, image, backgroundColor) {
@@ -401,7 +401,7 @@
  * 出力結果のデータは、歩ける場所：true 歩けない場所:falseとなる
  * 直接マップチップを作成するわけではないので注意
  */
-(function(ns) {
+(function(game) {
 
     var ROOM_SIZE_MIN = 4;
     var MARGIN_BETWEEN_RECT_ROOM = 2;
@@ -429,7 +429,7 @@
         }
     };
 
-    tm.define("ns.GenerateMap", {
+    tm.define("game.GenerateMap", {
 
         init: function (mapChipWidthNum, mapChipHeightNum) {
             // 生成する配列の初期化
@@ -686,7 +686,7 @@
 /**
  * AutoTile
  */
-(function(ns) {
+(function(game) {
      
     /**
      * オートタイルを行うマップチップは、一つのマップチップ(口)を4分割(田)し
@@ -940,7 +940,7 @@
     /**
      * 描画するマップチップの場所を自動選択する
      */
-    tm.define("ns.AutoTile", {
+    tm.define("game.AutoTile", {
         init: function (map, options) {
         	// レイヤーの初期化
         	// var layer1 = _initLayerMap(createdMap);
@@ -980,7 +980,7 @@
         	// マップ外もオートタイル判定に使うかどうか
         	// true : オートタイル判定OKとして、道をマップ外まで伸ばす
         	// false: オートタイル判定NGとして、道をマップ外まで伸ばさない
-        	this.isMatchOutMap = false; //options.isMatchOutMap || false;
+        	this.isMatchOutMap = false; //optiogame.isMatchOutMap || false;
 
         	// オートタイルデータに変換する
         	this.autoTileMap = this.transformTile();
@@ -1140,7 +1140,7 @@
 /**
  * MapChip
  */
-(function(ns) {
+(function(game) {
 
 	var counterObject = function(obj) {
 	    var count = 0;
@@ -1150,7 +1150,7 @@
 	    return count;
 	};
 
-    tm.define("ns.MapChip", {
+    tm.define("game.MapChip", {
         init: function(param) {
             this.chips     = param.chips;
             this.map       = param.map;
@@ -1205,9 +1205,9 @@
 /**
  * MapSprite
  */
-(function(ns) {
+(function(game) {
 
-    tm.define("ns.MapSprite", {
+    tm.define("game.MapSprite", {
 
         superClass: tm.app.Shape,
 
@@ -1388,7 +1388,7 @@
 /**
  * Map
  */
-(function(ns) {
+(function(game) {
 
     // コマ送りアニメーションの基本的な書式を利用
     var IMAGE_WIDTH  = 32;
@@ -1407,20 +1407,20 @@
     var HIT_LEFT  = 0x04;
     var HIT_RIGHT = 0x08;
 
-	tm.define("ns.Map", {
-		superClass : ns.MapSprite,
+	tm.define("game.Map", {
+		superClass : game.MapSprite,
 
 		init: function (pad) {
 			// マップの自動生成
             var mapSize = Math.rand(20, 31);
             // var mapSize = 10;
-			var map = ns.GenerateMap(mapSize, mapSize);
+			var map = game.GenerateMap(mapSize, mapSize);
 
             // 水の部分をオートタイル化する
-            var autotile = ns.AutoTile(map.map);
+            var autotile = game.AutoTile(map.map);
 
 			// マップデータの作成
-			var mapchip = ns.MapChip({
+			var mapchip = game.MapChip({
                 chips: {
                 	0: {width: CHIP_WIDTH,   height: CHIP_HEIGHT,   image: "Dirt1_pipo",  count: 5},
                 	1: {width: CHIP_WIDTH/2, height: CHIP_HEIGHT/2, image: "Water2_pipo", count: 20},
@@ -1512,8 +1512,8 @@
             // プレイヤーの位置を別として保持
             this.isPlayer = true;
             this.playerPosition = tm.geom.Vector2(
-                this.width/2  + (ns.SCREEN_WIDTH/2  - initPosition.x),
-                this.height/2 + (ns.SCREEN_HEIGHT/2 - initPosition.y) + PLAYER_POSITION_Y);
+                this.width/2  + (game.SCREEN_WIDTH/2  - initPosition.x),
+                this.height/2 + (game.SCREEN_HEIGHT/2 - initPosition.y) + PLAYER_POSITION_Y);
 
             // プレイヤーのヒット判定用にポイントを作成
             var playerElement = tm.app.Object2D();
@@ -1759,7 +1759,7 @@
 /**
  * AnimationCharactor
  */
-(function(ns) {
+(function(game) {
 
     var DOWN_NEUTRAL  = 1;
     var UP_NEUTRAL    = 19;
@@ -1787,7 +1787,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 24; // 枚数
 
-    tm.define("ns.AnimationCharactor", {
+    tm.define("game.AnimationCharactor", {
         superClass : tm.app.AnimationSprite,
 
         init: function (imageName, frame, drawImageScaleSize) {
@@ -1972,10 +1972,10 @@
 /**
  * Player
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.Player", {
-		superClass : ns.AnimationCharactor,
+	tm.define("game.Player", {
+		superClass : game.AnimationCharactor,
 
 		init: function () {
 			this.name = "player";
@@ -2308,12 +2308,12 @@
 /**
  * Enemy
  */
-(function(ns) {
+(function(game) {
 
 	var ATTACK_LIMIT_COUNTER = 90;
 
-	tm.define("ns.Enemy", {
-		superClass : ns.AnimationCharactor,
+	tm.define("game.Enemy", {
+		superClass : game.AnimationCharactor,
 
 		init: function (image, imageData, drawImageScaleSize, player, map) {
 			this.superInit(image, imageData, drawImageScaleSize);
@@ -2507,11 +2507,11 @@
             	var damage = this.player.damage(attack);
 
             	// ダメージを表示
-            	var damageEffect = ns.DamagedNumber(damage, 255, 20, 20, 255, 255, 255);
+            	var damageEffect = game.DamagedNumber(damage, 255, 20, 20, 255, 255, 255);
 
             	// 表示場所を設定
                 var damagePosition = this.map.mapCenterToScreenTopLeft(hittedElement.x, hittedElement.y);
-                damageEffect.effectPositionSet(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT/2 + 10);
+                damageEffect.effectPositionSet(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT/2 + 10);
                 app.currentScene.addChild(damageEffect);
             }
 		},
@@ -2559,10 +2559,10 @@
 /**
  * SlimeBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SlimeBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.SlimeBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SlimeBlue", {
@@ -2608,10 +2608,10 @@
 /**
  * SlimeGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SlimeGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.SlimeGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SlimeGreen", {
@@ -2657,10 +2657,10 @@
 /**
  * SlimeRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SlimeRed", {
-		superClass : ns.Enemy,
+	tm.define("game.SlimeRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SlimeRed", {
@@ -2703,10 +2703,10 @@
 /**
  * SlimeGold
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SlimeGold", {
-		superClass : ns.Enemy,
+	tm.define("game.SlimeGold", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SlimeGold", {
@@ -2746,10 +2746,10 @@
 /**
  * SmallBatBlack
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SmallBatBlack", {
-		superClass : ns.Enemy,
+	tm.define("game.SmallBatBlack", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SmallBatBlack", {
@@ -2795,10 +2795,10 @@
 /**
  * SmallBatGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SmallBatGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.SmallBatGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SmallBatGreen", {
@@ -2841,10 +2841,10 @@
 /**
  * SmallBatRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SmallBatRed", {
-		superClass : ns.Enemy,
+	tm.define("game.SmallBatRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SmallBatRed", {
@@ -2884,10 +2884,10 @@
 /**
  * SmallBatGhost
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SmallBatGhost", {
-		superClass : ns.Enemy,
+	tm.define("game.SmallBatGhost", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SmallBatGhost", {
@@ -2927,10 +2927,10 @@
 /**
  * GoblinGrey
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GoblinGrey", {
-		superClass : ns.Enemy,
+	tm.define("game.GoblinGrey", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GoblinGrey", {
@@ -2976,10 +2976,10 @@
 /**
  * GoblinGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GoblinGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.GoblinGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GoblinGreen", {
@@ -3022,10 +3022,10 @@
 /**
  * GoblinRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GoblinRed", {
-		superClass : ns.Enemy,
+	tm.define("game.GoblinRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GoblinRed", {
@@ -3065,10 +3065,10 @@
 /**
  * BatBlack
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.BatBlack", {
-		superClass : ns.Enemy,
+	tm.define("game.BatBlack", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("BatBlack", {
@@ -3114,10 +3114,10 @@
 /**
  * BatGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.BatGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.BatGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("BatGreen", {
@@ -3157,10 +3157,10 @@
 /**
  * BatBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.BatBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.BatBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("BatBlue", {
@@ -3200,10 +3200,10 @@
 /**
  * BatRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.BatRed", {
-		superClass : ns.Enemy,
+	tm.define("game.BatRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("BatRed", {
@@ -3243,10 +3243,10 @@
 /**
  * BatWhite
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.BatWhite", {
-		superClass : ns.Enemy,
+	tm.define("game.BatWhite", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("BatWhite", {
@@ -3286,10 +3286,10 @@
 /**
  * SkeltonNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SkeltonNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.SkeltonNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SkeltonNormal", {
@@ -3338,10 +3338,10 @@
 /**
  * SkeltonGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SkeltonGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.SkeltonGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SkeltonGreen", {
@@ -3381,10 +3381,10 @@
 /**
  * SkeltonBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SkeltonBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.SkeltonBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SkeltonBlue", {
@@ -3424,10 +3424,10 @@
 /**
  * SkeltonRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.SkeltonRed", {
-		superClass : ns.Enemy,
+	tm.define("game.SkeltonRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("SkeltonRed", {
@@ -3467,10 +3467,10 @@
 /**
  * HarypyNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.HarypyNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.HarypyNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("HarypyNormal", {
@@ -3513,10 +3513,10 @@
 /**
  * LizardManNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.LizardManNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.LizardManNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("LizardManNormal", {
@@ -3562,10 +3562,10 @@
 /**
  * LizardManBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.LizardManBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.LizardManBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("LizardManBlue", {
@@ -3605,10 +3605,10 @@
 /**
  * LizardManRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.LizardManRed", {
-		superClass : ns.Enemy,
+	tm.define("game.LizardManRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("LizardManRed", {
@@ -3648,10 +3648,10 @@
 /**
  * ZombieNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.ZombieNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.ZombieNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("ZombieNormal", {
@@ -3691,10 +3691,10 @@
 /**
  * ZombieRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.ZombieRed", {
-		superClass : ns.Enemy,
+	tm.define("game.ZombieRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("ZombieRed", {
@@ -3734,10 +3734,10 @@
 /**
  * GolemNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GolemNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.GolemNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GolemNormal", {
@@ -3777,10 +3777,10 @@
 /**
  * GolemGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GolemGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.GolemGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GolemGreen", {
@@ -3820,10 +3820,10 @@
 /**
  * GolemBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GolemBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.GolemBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GolemBlue", {
@@ -3863,10 +3863,10 @@
 /**
  * GolemRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GolemRed", {
-		superClass : ns.Enemy,
+	tm.define("game.GolemRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GolemRed", {
@@ -3906,10 +3906,10 @@
 /**
  * GolemGhost
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GolemGhost", {
-		superClass : ns.Enemy,
+	tm.define("game.GolemGhost", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GolemGhost", {
@@ -3949,10 +3949,10 @@
 /**
  * GhostNormal
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GhostNormal", {
-		superClass : ns.Enemy,
+	tm.define("game.GhostNormal", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GhostNormal", {
@@ -3992,10 +3992,10 @@
 /**
  * GargoyleBlack
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GargoyleBlack", {
-		superClass : ns.Enemy,
+	tm.define("game.GargoyleBlack", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GargoyleBlack", {
@@ -4035,10 +4035,10 @@
 /**
  * GargoyleRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.GargoyleRed", {
-		superClass : ns.Enemy,
+	tm.define("game.GargoyleRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("GargoyleRed", {
@@ -4078,10 +4078,10 @@
 /**
  * DragonGreen
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonGreen", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonGreen", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonGreen", {
@@ -4124,10 +4124,10 @@
 /**
  * DragonBlue
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonBlue", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonBlue", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonBlue", {
@@ -4167,10 +4167,10 @@
 /**
  * DragonRed
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonRed", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonRed", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonRed", {
@@ -4210,10 +4210,10 @@
 /**
  * DragonBlack
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonBlack", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonBlack", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonBlack", {
@@ -4253,10 +4253,10 @@
 /**
  * DragonWhite
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonWhite", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonWhite", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonWhite", {
@@ -4296,10 +4296,10 @@
 /**
  * DragonGhost
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.DragonGhost", {
-		superClass : ns.Enemy,
+	tm.define("game.DragonGhost", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("DragonGhost", {
@@ -4339,10 +4339,10 @@
 /**
  * Death
  */
-(function(ns) {
+(function(game) {
 
-	tm.define("ns.Death", {
-		superClass : ns.Enemy,
+	tm.define("game.Death", {
+		superClass : game.Enemy,
 
 		init: function (player, map) {
 			this.superInit("Death", {
@@ -4382,7 +4382,7 @@
 /**
  * ItemList
  */
-(function(ns) {
+(function(game) {
 
 	var ITEM_LIST = {
 		item: [
@@ -4657,7 +4657,7 @@
 		]
 	};
 
-	tm.define("ns.ItemList", {
+	tm.define("game.ItemList", {
 		superClass : tm.app.CanvasElement,
 
 		init: function () {
@@ -4682,7 +4682,7 @@
 /**
  * DropItem
  */
-(function(ns) {
+(function(game) {
 
     var IMAGE_WIDTH  = 32;
     var IMAGE_HEIGHT = 128;
@@ -4690,7 +4690,7 @@
     var IMAGE_DIVIDE_ROW    = 4;
     var IMAGE_ANIM_COUNT    = 4; // 枚数
 
-	tm.define("ns.DropItem", {
+	tm.define("game.DropItem", {
 		superClass : tm.app.AnimationSprite,
 
 		init: function (item, image, drawImageScaleSize) {
@@ -4749,15 +4749,15 @@
 /**
  * Status
  */
-(function(ns) {
+(function(game) {
 
     // ステータス画面のサイズなど
     var STATUS_WIDTH_PADDING = 25;
-    var STATUS_WIDTH  = ns.SCREEN_WIDTH  - (STATUS_WIDTH_PADDING*2);
-    var STATUS_HEIGHT = ns.SCREEN_HEIGHT - 100;
+    var STATUS_WIDTH  = game.SCREEN_WIDTH  - (STATUS_WIDTH_PADDING*2);
+    var STATUS_HEIGHT = game.SCREEN_HEIGHT - 100;
 
     var STATUS_TOP_PADDING = 50;
-    var STATUS_CENTER_X = ns.SCREEN_WIDTH/2;
+    var STATUS_CENTER_X = game.SCREEN_WIDTH/2;
     var STATUS_CENTER_Y = STATUS_TOP_PADDING + STATUS_HEIGHT/2;
 
     var STATUS_TOPLEFT_X   = STATUS_CENTER_X - STATUS_WIDTH/2;
@@ -4767,7 +4767,7 @@
     var EXIT_BUTTON_PADDING = 15;
     var EXIT_BUTTON_WIDTH  = 130;
     var EXIT_BUTTON_HEIGHT = 50;
-    var EXIT_BUTTON_CENTER_X = ns.SCREEN_WIDTH - STATUS_WIDTH_PADDING - (EXIT_BUTTON_WIDTH/2) - EXIT_BUTTON_PADDING;
+    var EXIT_BUTTON_CENTER_X = game.SCREEN_WIDTH - STATUS_WIDTH_PADDING - (EXIT_BUTTON_WIDTH/2) - EXIT_BUTTON_PADDING;
     var EXIT_BUTTON_CENTER_Y = STATUS_TOP_PADDING + EXIT_BUTTON_HEIGHT/2 + EXIT_BUTTON_PADDING;
 
     // ステータス表示のラベルの定数
@@ -4787,7 +4787,7 @@
                 name: "statusLevel",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING,
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4797,7 +4797,7 @@
                 name: "statusHP",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING + (STATUS_LABEL_BETWEEN_PADDING*1),
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4807,7 +4807,7 @@
                 name: "statusEXP",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING + (STATUS_LABEL_BETWEEN_PADDING*2),
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4817,7 +4817,7 @@
                 name: "statusSTR",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING + (STATUS_LABEL_BETWEEN_PADDING*3),
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4827,7 +4827,7 @@
                 name: "statusDEF",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING + (STATUS_LABEL_BETWEEN_PADDING*4),
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4837,7 +4837,7 @@
                 name: "statusAGI",
                 x: STATUS_LABEL_LEFT_PADDING,
                 y: STATUS_LABEL_UP_PADDING + (STATUS_LABEL_BETWEEN_PADDING*5),
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -4846,12 +4846,12 @@
         }
     };
 
-    tm.define("ns.Status", {
+    tm.define("game.Status", {
         superClass : tm.app.Shape,
 
         init: function(parent) {
-            this.superInit(ns.SCREEN_WIDTH, ns.SCREEN_HEIGHT);
-            this.setPosition(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT/2);
+            this.superInit(game.SCREEN_WIDTH, game.SCREEN_HEIGHT);
+            this.setPosition(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT/2);
 
             this.backgroundColor = "rgba(0, 0, 0, 0.0)";
             this.alpha = 1.0;
@@ -4864,7 +4864,7 @@
             this.player = parent.player;
 
             // ステータス終了ボタン
-            var endButton = ns.iPhoneBlueButton(EXIT_BUTTON_WIDTH, EXIT_BUTTON_HEIGHT, "終了");
+            var endButton = game.iPhoneBlueButton(EXIT_BUTTON_WIDTH, EXIT_BUTTON_HEIGHT, "終了");
             endButton.position.set(EXIT_BUTTON_CENTER_X, EXIT_BUTTON_CENTER_Y);
             this.endButton = endButton;
             endButton.addEventListener("pointingend", function(e) {
@@ -4872,7 +4872,7 @@
             });
 
             // 画像
-            var face = ns.Face(parent);
+            var face = game.Face(parent);
             face.position.set(FACE_LEFT_PADDING, FACE_TOP_PADDING);
 
             // 武器選択
@@ -4912,7 +4912,7 @@
                         pickerData.push(pushData);
                     }
                 }
-                e.app.pushScene(ns.iPhonePicker(this, pickerData));
+                e.app.pushScene(game.iPhonePicker(this, pickerData));
             });
 
             // 防具選択
@@ -4951,7 +4951,7 @@
                         pickerData.push(pushData);
                     }
                 }
-                e.app.pushScene(ns.iPhonePicker(this, pickerData));
+                e.app.pushScene(game.iPhonePicker(this, pickerData));
             });
 
 
@@ -4985,7 +4985,7 @@
                         pickerData.push(pushData);
                     }
                 }
-                e.app.pushScene(ns.iPhonePicker(this, pickerData));
+                e.app.pushScene(game.iPhonePicker(this, pickerData));
             });
 
             // 画面に追加
@@ -5040,18 +5040,6 @@
                 STATUS_WIDTH, 
                 STATUS_HEIGHT, 
                 lineWidth*2);
-            // this._strokeRefresh(c, lineWidth, lineWidth*2, lineWidth*2, ns.Status.IN_STROKE_COLOR,  lineWidth/2);
-
-
-            // var grad = tm.graphics.LinearGradient(0, 0, 0, this.height);
-
-            // // グラデーション
-            // grad.addColorStop(0.0, ns.Status.BACK_GRADIENT_COLOR_TOP);
-            // grad.addColorStop(0.5, ns.Status.BACK_GRADIENT_COLOR_CENTER);
-            // grad.addColorStop(0.5, ns.Status.BACK_GRADIENT_COLOR_BOTTOM);
-            // grad.addColorStop(1.0, ns.Status.BACK_GRADIENT_COLOR_BOTTOM);
-            // c.setGradient(grad);
-            // c.fillRect(lineWidth, lineWidth, this.width-lineWidth*2, this.height-lineWidth*2, lineWidth*4);
         },
 
         _strokeRefresh: function (canvas, lineWidth, linePositionX, linePositionY, color, radius) {
@@ -5118,22 +5106,13 @@
         },
     });
 
-    // ns.Status.OUT_STROKE_COLOR = "rgba(20, 40, 100, 0.5)";
-    ns.Status.OUT_STROKE_COLOR = "rgba(255, 255, 255, 1.0)";
-    // ns.Status.IN_STROKE_COLOR  = "rgba(20, 80, 180, 0.5)";
-    ns.Status.IN_STROKE_COLOR  = "rgba(255, 0, 0, 1.0)";
-
-    ns.Status.BACK_GRADIENT_COLOR_TOP    = "rgba(120, 160, 245, 0.5)";
-    ns.Status.BACK_GRADIENT_COLOR_CENTER = "rgba(55, 120, 220, 0.5)";
-    ns.Status.BACK_GRADIENT_COLOR_BOTTOM = "rgba(35, 95, 220, 0.5)";
-
 })(game);
 /**
  * Face
  */
-(function(ns) {
+(function(game) {
 
-    tm.define("ns.Face", {
+    tm.define("game.Face", {
         superClass : tm.app.Shape,
 
         init: function(parent) {
@@ -5164,167 +5143,167 @@
 /**
  * StageManager
  */
-(function(ns) {
+(function(game) {
 
     var STAGE_MAKING = [
         // 1-10
         [
-            {enemy: ns.SlimeGreen,      num: 15},
+            {enemy: game.SlimeGreen,      num: 15},
         ],[
-            {enemy: ns.SlimeGreen,      num: 20},
-            {enemy: ns.SmallBatBlack,   num: 5},
+            {enemy: game.SlimeGreen,      num: 20},
+            {enemy: game.SmallBatBlack,   num: 5},
         ],[
-            {enemy: ns.SlimeGreen,      num: 15},
-            {enemy: ns.SmallBatBlack,   num: 10},
+            {enemy: game.SlimeGreen,      num: 15},
+            {enemy: game.SmallBatBlack,   num: 10},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 15},
-            {enemy: ns.GoblinGrey,      num: 5},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 15},
+            {enemy: game.GoblinGrey,      num: 5},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 15},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 15},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 5},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 5},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 10},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 10},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 10},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 10},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 5},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 5},
         ],[
-            {enemy: ns.SlimeGreen,      num: 10},
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 5},
+            {enemy: game.SlimeGreen,      num: 10},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 5},
         ],
 
         // 11-20
         [
-            {enemy: ns.SmallBatBlack,   num: 10},
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 10},
-            {enemy: ns.SkeltonNormal,   num: 5},
+            {enemy: game.SmallBatBlack,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 10},
+            {enemy: game.SkeltonNormal,   num: 5},
         ],[
-            {enemy: ns.GoblinGrey,      num: 10},
-            {enemy: ns.BatBlack,        num: 15},
-            {enemy: ns.SkeltonNormal,   num: 10},
+            {enemy: game.GoblinGrey,      num: 10},
+            {enemy: game.BatBlack,        num: 15},
+            {enemy: game.SkeltonNormal,   num: 10},
         ],[
-            {enemy: ns.GoblinGrey,      num: 5},
-            {enemy: ns.BatBlack,        num: 10},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
+            {enemy: game.GoblinGrey,      num: 5},
+            {enemy: game.BatBlack,        num: 10},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
         ],[
-            {enemy: ns.GoblinGrey,      num: 5},
-            {enemy: ns.BatBlack,        num: 10},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
+            {enemy: game.GoblinGrey,      num: 5},
+            {enemy: game.BatBlack,        num: 10},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
         ],[
-            {enemy: ns.GoblinGrey,      num: 5},
-            {enemy: ns.BatBlack,        num: 5},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 10},
+            {enemy: game.GoblinGrey,      num: 5},
+            {enemy: game.BatBlack,        num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 10},
         ],[
-            {enemy: ns.BatBlack,        num: 5},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 15},
+            {enemy: game.BatBlack,        num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
         ],[
-            {enemy: ns.BatBlack,        num: 5},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 15},
+            {enemy: game.BatBlack,        num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
         ],[
-            {enemy: ns.BatBlack,        num: 5},
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 15},
+            {enemy: game.BatBlack,        num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
         ],[
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 15},
-            {enemy: ns.LizardManNormal, num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
+            {enemy: game.LizardManNormal, num: 5},
         ],[
-            {enemy: ns.SkeltonNormal,   num: 10},
-            {enemy: ns.SlimeBlue,       num: 10},
-            {enemy: ns.HarypyNormal,    num: 15},
-            {enemy: ns.LizardManNormal, num: 5},
+            {enemy: game.SkeltonNormal,   num: 10},
+            {enemy: game.SlimeBlue,       num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
+            {enemy: game.LizardManNormal, num: 5},
         ],
 
         // 21-30
         [
-            {enemy: ns.HarypyNormal,    num: 15},
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
+            {enemy: game.HarypyNormal,    num: 15},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
         ],[
-            {enemy: ns.HarypyNormal,    num: 10},
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
+            {enemy: game.HarypyNormal,    num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
         ],[
-            {enemy: ns.HarypyNormal,    num: 10},
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
+            {enemy: game.HarypyNormal,    num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
         ],[
-            {enemy: ns.HarypyNormal,    num: 10},
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
+            {enemy: game.HarypyNormal,    num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
         ],[
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
-            {enemy: ns.SlimeRed,        num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
+            {enemy: game.SlimeRed,        num: 10},
         ],[
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
-            {enemy: ns.SlimeRed,        num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
+            {enemy: game.SlimeRed,        num: 10},
         ],[
-            {enemy: ns.LizardManNormal, num: 5},
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
-            {enemy: ns.SlimeRed,        num: 10},
+            {enemy: game.LizardManNormal, num: 5},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
+            {enemy: game.SlimeRed,        num: 10},
         ],[
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
-            {enemy: ns.SlimeRed,        num: 15},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
+            {enemy: game.SlimeRed,        num: 15},
         ],[
-            {enemy: ns.SmallBatGreen,   num: 10},
-            {enemy: ns.GoblinGreen,     num: 10},
-            {enemy: ns.BatGreen,        num: 10},
-            {enemy: ns.SlimeRed,        num: 15},
+            {enemy: game.SmallBatGreen,   num: 10},
+            {enemy: game.GoblinGreen,     num: 10},
+            {enemy: game.BatGreen,        num: 10},
+            {enemy: game.SlimeRed,        num: 15},
         ],[
-            {enemy: ns.GoblinGreen,     num: 5},
-            {enemy: ns.BatGreen,        num: 5},
-            {enemy: ns.SlimeRed,        num: 10},
-            {enemy: ns.DragonGreen,     num: 20},
+            {enemy: game.GoblinGreen,     num: 5},
+            {enemy: game.BatGreen,        num: 5},
+            {enemy: game.SlimeRed,        num: 10},
+            {enemy: game.DragonGreen,     num: 20},
         ]
     ];
 
-	tm.define("ns.StageManager", {
+	tm.define("game.StageManager", {
 		init: function (stageNum, enemyGroup, player, map) {
             this._isGameClear = false;
             if (STAGE_MAKING.length < stageNum) {
@@ -5364,14 +5343,14 @@
 /**
  * BarLoadingScene
  */
-(function(ns) {
+(function(game) {
     
     var DEFAULT_PARAM = {
         width: 465,
         height: 465,
     };
     
-    tm.define("ns.BarLoadingScene", {
+    tm.define("game.BarLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {
@@ -5393,8 +5372,8 @@
             this.barUnit = 100 / planLoadNum;
             
             // プログレスバー
-            var bar = ns.ProgressBar(ns.SCREEN_WIDTH-100, 25);
-            bar.setPosition(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT - 90);
+            var bar = game.ProgressBar(game.SCREEN_WIDTH-100, 25);
+            bar.setPosition(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT - 90);
             bar.setBarLength(0);
             this.bar = bar;
             this.addChild(bar);
@@ -5425,14 +5404,14 @@
 /**
  * EffectLoadingScene
  */
-(function(ns) {
+(function(game) {
     
     var DEFAULT_PARAM = {
         width: 465,
         height: 465,
     };
     
-    tm.define("ns.EffectLoadingScene", {
+    tm.define("game.EffectLoadingScene", {
         superClass: tm.app.Scene,
         
         init: function(param) {
@@ -5454,8 +5433,8 @@
             this.barUnit = 100 / planLoadNum;
             
             // プログレスバー
-            var bar = ns.ProgressBar(ns.SCREEN_WIDTH-250, 25);
-            bar.setPosition(ns.SCREEN_WIDTH/2 - 50, ns.SCREEN_HEIGHT - 90);
+            var bar = game.ProgressBar(game.SCREEN_WIDTH-250, 25);
+            bar.setPosition(game.SCREEN_WIDTH/2 - 50, game.SCREEN_HEIGHT - 90);
             bar.setBarLength(0);
             this.bar = bar;
             this.addChild(bar);
@@ -5474,7 +5453,7 @@
                 }
             });
             var loading = tm.app.AnimationSprite(ss, 256, 256);
-            loading.position.set(ns.SCREEN_WIDTH - 100, ns.SCREEN_HEIGHT - 100);
+            loading.position.set(game.SCREEN_WIDTH - 100, game.SCREEN_HEIGHT - 100);
             this.addChild(loading);
             loading.gotoAndPlay("load");
 
@@ -5504,25 +5483,25 @@
 /**
  * TitleScene
  */
-(function(ns) {
+(function(game) {
 
-    tm.define("ns.TitleScene", {
+    tm.define("game.TitleScene", {
         superClass : tm.app.TitleScene,
 
         init : function() {
             this.superInit({
                 title :  "RoguePlus",
-                width :  ns.SCREEN_WIDTH,
-                height : ns.SCREEN_HEIGHT
+                width :  game.SCREEN_WIDTH,
+                height : game.SCREEN_HEIGHT
             });
 
             this.addEventListener("pointingend", function(e) {
                 // シーンの切り替え
-                var loadingScene = ns.EffectLoadingScene({
+                var loadingScene = game.EffectLoadingScene({
                     width:        e.app.width,
                     height:       e.app.height,
                     assets:       MAIN_ASSET,
-                    nextScene:    ns.MainScene,
+                    nextScene:    game.MainScene,
                 });
                 e.app.replaceScene(loadingScene);
             });
@@ -5533,7 +5512,7 @@
 /**
  * MainScene
  */
-(function(ns) {
+(function(game) {
 
     // ラベルのリスト
     var UI_DATA = {
@@ -5543,7 +5522,7 @@
                 name: "stairsNum",
                 x: 100,
                 y: 80,
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -5553,7 +5532,7 @@
                 name: "statusLevel",
                 x: 130,
                 y: 80,
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -5563,7 +5542,7 @@
                 name: "statusHP",
                 x: 230,
                 y: 80,
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -5573,7 +5552,7 @@
                 name: "statusMP",
                 x: 430,
                 y: 80,
-                width: ns.SCREEN_WIDTH,
+                width: game.SCREEN_WIDTH,
                 fillStyle: "white",
                 text: " ",
                 fontSize: 25,
@@ -5582,7 +5561,7 @@
         }
     };
 
-    tm.define("ns.MainScene", {
+    tm.define("game.MainScene", {
         superClass : tm.app.Scene,
 
         init : function(continuePlayer, continuePad) {
@@ -5591,24 +5570,24 @@
             // コントローラーパッド
             var pad = continuePad || tm.app.Pad();
             this.pad = pad;
-            pad.position.set(100, ns.SCREEN_HEIGHT - 80);
+            pad.position.set(100, game.SCREEN_HEIGHT - 80);
 
             // プレイヤー
-            var player = continuePlayer || ns.Player(pad);
+            var player = continuePlayer || game.Player(pad);
             this.player = player;
             player.setInputPad(pad);
-            player.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT/2);
+            player.position.set(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT/2);
 
             // セーブデータがあれば引き継ぐ
             var saveData = this._loadSaveData();
             if (saveData && !continuePlayer && !continuePad) {
                 var savedPlayer           = saveData.saveData.player;
-                ns.MainScene.STAGE_NUMBER = saveData.saveData.stairs;
+                game.MainScene.STAGE_NUMBER = saveData.saveData.stairs;
                 player.dataLoad(savedPlayer);
             }
 
             // マップ
-            var map = ns.Map(pad);
+            var map = game.Map(pad);
             this.map = map;
             // 取得した位置をスクリーンの中心になるようにマップの中心座標を設定する
             var safePosition = map.getRandomSafeMapChipPosition(); // 場所を取得
@@ -5616,14 +5595,14 @@
                 safePosition.x * map.mapChipWidth  + map.mapChipWidth/2,
                 safePosition.y * map.mapChipHeight);
             // マップの中心位置を計算する(safePositionがスクリーンの中心に来るように)
-            safePosition.x = ns.SCREEN_WIDTH/2  - safePosition.x;
-            safePosition.y = ns.SCREEN_HEIGHT/2 - safePosition.y;
+            safePosition.x = game.SCREEN_WIDTH/2  - safePosition.x;
+            safePosition.y = game.SCREEN_HEIGHT/2 - safePosition.y;
             map.setStairs();
             map.initMapPosition(safePosition);
             map.setPlayer(safePosition);
 
             // アイテム
-            var itemList   = ns.ItemList();
+            var itemList   = game.ItemList();
             var itemGroup  = tm.app.CanvasElement();
             this.itemGroup = itemGroup;
             map.setItemGroup(itemGroup);
@@ -5631,7 +5610,7 @@
             // 敵
             var enemyGroup = tm.app.CanvasElement();
             this.enemyGroup = enemyGroup;
-            this.stage = ns.StageManager(ns.MainScene.STAGE_NUMBER, enemyGroup, player, map);
+            this.stage = game.StageManager(game.MainScene.STAGE_NUMBER, enemyGroup, player, map);
 
 
             // 敵をマップに追加
@@ -5650,7 +5629,7 @@
                 }
             });
             var slash = tm.app.AnimationSprite(slashSS, 120, 120);
-            slash.position.set(ns.SCREEN_WIDTH/2 + 10, ns.SCREEN_HEIGHT/2 + 10);
+            slash.position.set(game.SCREEN_WIDTH/2 + 10, game.SCREEN_HEIGHT/2 + 10);
 
             // 敵撃破時のエフェクト
             var enemyDeadSS = tm.app.SpriteSheet({
@@ -5667,10 +5646,10 @@
 
             // 攻撃ボタン
             var attackIcon = tm.app.Sprite("attackIcon", 72, 72);
-            var attackButton = ns.GlossyImageButton(200, 160, attackIcon, "green");
-            attackButton.position.set(ns.SCREEN_WIDTH-50-50, ns.SCREEN_HEIGHT-30-50);
+            var attackButton = game.GlossyImageButton(200, 160, attackIcon, "green");
+            attackButton.position.set(game.SCREEN_WIDTH-50-50, game.SCREEN_HEIGHT-30-50);
             this.attackButton = attackButton;
-            var attackTiming = ns.Timing(150);
+            var attackTiming = game.Timing(150);
             this.attackTiming = attackTiming;
 
             // 攻撃時の処理
@@ -5711,7 +5690,7 @@
                         var damage = enemy.damage(attack);
 
                         // ダメージ数を表示
-                        var damageEffect = ns.DamagedNumber(damage);
+                        var damageEffect = game.DamagedNumber(damage);
 
                         // 経験値取得
                         var exp = enemy.getExp();
@@ -5720,7 +5699,7 @@
                         // アイテムドロップ
                         var itemData = itemList.get(enemy.getDropItem());
                         if (itemData !== null) {
-                            var dropItem = ns.DropItem(itemData);
+                            var dropItem = game.DropItem(itemData);
                             dropItem.position.set(enemy.x, enemy.y);
                             map.addItem(dropItem);
                         }
@@ -5749,17 +5728,17 @@
 
             // ステータス画面への遷移ボタン
             var statusIcon = tm.app.Sprite("statusIcon", 72, 72);
-            var statusButton = ns.GlossyImageButton(200, 160, statusIcon, "blue");
-            statusButton.position.set(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT-30-50);
+            var statusButton = game.GlossyImageButton(200, 160, statusIcon, "blue");
+            statusButton.position.set(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT-30-50);
             this.statusButton = statusButton;
             statusButton.addEventListener("pointingend", function(e) {
                 tm.asset.AssetManager.get("openstatus").clone().play();
-                e.app.pushScene(ns.StatusScene(player));
+                e.app.pushScene(game.StatusScene(player));
             });
 
             // 画面に追加
             this.addChild(map);
-            this.windows = ns.ManageSimpleWindows(this); // ウィンドウ
+            this.windows = game.ManageSimpleWindows(this); // ウィンドウ
             this.addChild(pad);
             this.addChild(player);
             this.addChild(slash);
@@ -5776,16 +5755,16 @@
         },
 
         screenLeftTopToCenter: function (x, y) {
-            var result = tm.geom.Vector2(x - ns.SCREEN_WIDTH/2, y - ns.SCREEN_HEIGHT/2);
+            var result = tm.geom.Vector2(x - game.SCREEN_WIDTH/2, y - game.SCREEN_HEIGHT/2);
             return result;
         },
         screenCenterToLeftTop: function (x, y) {
-            var result = tm.geom.Vector2(x + ns.SCREEN_WIDTH/2, y + ns.SCREEN_HEIGHT/2);
+            var result = tm.geom.Vector2(x + game.SCREEN_WIDTH/2, y + game.SCREEN_HEIGHT/2);
             return result;
         },
 
         drawStatus: function () {
-            this.stairsNum.text   = ns.MainScene.STAGE_NUMBER + "階";
+            this.stairsNum.text   = game.MainScene.STAGE_NUMBER + "階";
             this.statusLevel.text = "Lv." + this.player.getLevel();
             this.statusHP.text    = "HP " + this.player.getCurrentHP() + "/" + this.player.getMaxHP();
             // this.statusMP.text    = "MP " + this.player.getCurrentMP() + "/" + this.player.getMaxMP();
@@ -5806,18 +5785,18 @@
 
             // 次のステージに進むフラグがたったらマップ更新
             if (this.map.isNextStage()) {
-                ++ns.MainScene.STAGE_NUMBER;
+                ++game.MainScene.STAGE_NUMBER;
                 this.bgm.stop();
                 tm.asset.AssetManager.get("downStairs").clone().play();
                 this._autoSave();
-                app.replaceScene(ns.MainScene(this.player, this.pad));
+                app.replaceScene(game.MainScene(this.player, this.pad));
             }
 
             // ゲームオーバーフラグがたったらゲーム終了
             if (this.player.isGameOver()) {
                 this.bgm.stop();
                 this._deleteSaveData();
-                app.replaceScene(ns.EndScene(ns.MainScene.STAGE_NUMBER, this.player.getLevel(), false));
+                app.replaceScene(game.EndScene(game.MainScene.STAGE_NUMBER, this.player.getLevel(), false));
             }
 
             // ゲームクリアフラグがたったらゲーム終了
@@ -5825,7 +5804,7 @@
                 this.bgm.stop();
                 this._deleteSaveData();
                 tm.asset.AssetManager.get("levelup").clone().play();
-                app.replaceScene(ns.EndScene(ns.MainScene.STAGE_NUMBER, this.player.getLevel(), true));
+                app.replaceScene(game.EndScene(game.MainScene.STAGE_NUMBER, this.player.getLevel(), true));
             }
         },
 
@@ -5833,7 +5812,7 @@
             // セーブデータを作成
             var saveData = {
                 player: this.player.cloneToSave(),
-                stairs: ns.MainScene.STAGE_NUMBER,
+                stairs: game.MainScene.STAGE_NUMBER,
             };
 
             var date = new Date();
@@ -5871,15 +5850,15 @@
         },
     });
 
-    ns.MainScene.STAGE_NUMBER = 1;
+    game.MainScene.STAGE_NUMBER = 1;
 
 })(game);
 /**
  * StatusScene
  */
-(function(ns) {
+(function(game) {
 
-    tm.define("ns.StatusScene", {
+    tm.define("game.StatusScene", {
         superClass : tm.app.Scene,
 
         init : function(player) {
@@ -5887,13 +5866,13 @@
             this.player = player;
 
             // 画面にかける色
-            var filter = tm.app.Shape(ns.SCREEN_WIDTH, ns.SCREEN_HEIGHT);
-            filter.setPosition(ns.SCREEN_WIDTH/2, ns.SCREEN_HEIGHT/2);
+            var filter = tm.app.Shape(game.SCREEN_WIDTH, game.SCREEN_HEIGHT);
+            filter.setPosition(game.SCREEN_WIDTH/2, game.SCREEN_HEIGHT/2);
             filter.canvas.clearColor("rgba(0, 0, 0, 0.75)");
             this.addChild(filter);
 
             // ステータス画面
-            var status = ns.Status(this);
+            var status = game.Status(this);
             this.status = status;
         },
 
@@ -5905,19 +5884,19 @@
 /**
  * EndScene
  */
-(function(ns) {
+(function(game) {
 
     var RESULT_PARAM = {
             score: 256,
             msg:      "【Rogue+】",
             hashtags: ["omatoro", "Rogue", "tmlib"],
             url:      "http://omatoro.github.io/RoguePlus",
-            width:    ns.SCREEN_WIDTH,
-            height:   ns.SCREEN_HEIGHT,
+            width:    game.SCREEN_WIDTH,
+            height:   game.SCREEN_HEIGHT,
             related:  "tmlib.js javascript testcording",
     };
 
-    tm.define("ns.EndScene", {
+    tm.define("game.EndScene", {
 
         superClass : tm.app.ResultScene,
 
@@ -5942,8 +5921,8 @@
         // Backボタンを押したら、onpointingstart->インスタンス.dispatchEventにより
         // 以下onnextsceneイベントが実行される
         onnextscene : function () {
-            ns.app.replaceScene(ns.TitleScene());
-            ns.MainScene.STAGE_NUMBER = 1;
+            game.app.replaceScene(game.TitleScene());
+            game.MainScene.STAGE_NUMBER = 1;
         },
     });
 
@@ -5951,35 +5930,35 @@
 /**
  * ゲーム起動処理
  */
-(function(ns) {
+(function(game) {
 
     tm.main(function() {
 
         // アプリケーション作成
-        ns.app = tm.app.CanvasApp("#world");
-        ns.app.resize(ns.SCREEN_WIDTH, ns.SCREEN_HEIGHT); // 画面サイズに合わせる
-        ns.app.fitWindow(); // リサイズ対応
-        ns.app.background = "rgb(0, 0, 0)"; // 背景色をセット
+        game.app = tm.app.CanvasApp("#world");
+        game.app.resize(game.SCREEN_WIDTH, game.SCREEN_HEIGHT); // 画面サイズに合わせる
+        game.app.fitWindow(); // リサイズ対応
+        game.app.background = "rgb(0, 0, 0)"; // 背景色をセット
 
         // デバッグ時のみ
-        if (ns.QUERY_PARAM.stats == "true") {
-            ns.app.enableStats();
+        if (game.QUERY_PARAM.stats == "true") {
+            game.app.enableStats();
         }
 
-        var targetScene = ns[ns.QUERY_PARAM.scene] || ns.TitleScene;
-        var assets = ASSET_MAP[ns.QUERY_PARAM.scene] || TITLE_ASSETS;
+        var targetScene = game[game.QUERY_PARAM.scene] || game.TitleScene;
+        var assets = ASSET_MAP[game.QUERY_PARAM.scene] || TITLE_ASSETS;
 
         // シーンの切り替え
-        var loadingScene = ns.BarLoadingScene({
-            width:      ns.app.width,
-            height:     ns.app.height,
+        var loadingScene = game.BarLoadingScene({
+            width:      game.app.width,
+            height:     game.app.height,
             assets:     assets,
             nextScene:  targetScene,
         });
-        ns.app.replaceScene(loadingScene);
+        game.app.replaceScene(loadingScene);
 
         // tmlibの実行
-        ns.app.run();
+        game.app.run();
 
     });
 
