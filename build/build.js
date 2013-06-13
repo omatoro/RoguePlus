@@ -351,8 +351,8 @@
             image.position.set(0, 0);
             this.addChild(image);
 
-            this.interaction.enabled = true;
-            this.interaction.boundingType = "rect";
+            this.setInteractive(true);
+            this.boundingType = "rect";
             this.addEventListener("pointingover", function() {
                 this.tweener.clear();
                 this.tweener.fade(0.7, 250);
@@ -4856,8 +4856,8 @@
             this.backgroundColor = "rgba(0, 0, 0, 0.0)";
             this.alpha = 1.0;
             
-            this.interaction.enabled = true;
-            this.interaction.boundingType = "rect";
+            this.setInteractive(true);
+            this.boundingType = "rect";
             this._refresh();
 
             // プレーヤー
