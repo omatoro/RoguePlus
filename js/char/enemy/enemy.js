@@ -64,7 +64,7 @@
 			var slash = tm.app.AnimationSprite(ss, 120, 120);
             slash.position.set(0, 0);
             this.slash = slash;
-            this.attackDistanse = 50;
+            this.attackDistance = 50;
             this.addChild(slash);
 		},
 
@@ -168,8 +168,8 @@
             var attackDirect = playerPosition.normalize();
             
             // 攻撃の場所を計算する(画面上)
-            var distanse = this.attackDistanse;
-            var attackScreenPosition = tm.geom.Vector2.mul(attackDirect, distanse);
+            var distance = this.attackDistance;
+            var attackScreenPosition = tm.geom.Vector2.mul(attackDirect, distance);
 
             // 攻撃時のアニメーション
             this.slash.position.set(attackScreenPosition.x, attackScreenPosition.y);
