@@ -16,17 +16,23 @@
             ns.app.enableStats();
         }
 
-        var targetScene = ns[ns.QUERY_PARAM.scene] || ns.TitleScene;
-        var assets = ASSET_MAP[ns.QUERY_PARAM.scene] || TITLE_ASSETS;
-
-        // シーンの切り替え
-        var loadingScene = ns.BarLoadingScene({
-            width:      ns.app.width,
-            height:     ns.app.height,
-            assets:     assets,
-            nextScene:  targetScene,
+        var loader = tm.asset.Loader();
+        loader.load({
+            "loading": "http://rawgithub.com/omatoro/RoguePlus/master/rsc/effect/loading2.png",
         });
-        ns.app.replaceScene(loadingScene);
+        loader.onload = function () {
+            var targetScene = ns[ns.QUERY_PARAM.scene] || TitleScene;
+            var assets = ASSET_MAP[ns.QUERY_PARAM.scene] || TITLE_ASSETS;
+
+            // シーンの切り替え
+            var loadingScene = ns.BarLoadingScene({
+                width:      ns.app.width,
+                height:     ns.app.height,
+                assets:     assets,
+                nextScene:  targetScene,
+            });
+            ns.app.replaceScene(loadingScene);
+        };
 
         // tmlibの実行
         ns.app.run();

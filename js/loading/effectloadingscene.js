@@ -25,9 +25,6 @@
                 ++planLoadNum;
             }
             this.planLoadNum = planLoadNum;
-
-            // 一つロードした際に増加する割合
-            this.barUnit = 100 / planLoadNum;
             
             // プログレスバー
             var bar = ns.ProgressBar(ns.SCREEN_WIDTH-250, 25);
@@ -38,7 +35,8 @@
 
 
             // ロード中のエフェクト
-            var ss = tm.app.SpriteSheet({
+            var temp = tm.asset.Manager.get("loading");
+            var ss = tm.asset.SpriteSheet({
                 image: "loading",
                 frame: {
                     width:  128,
@@ -49,29 +47,28 @@
                     "load": [0, 30, "load"]
                 }
             });
-            var loading = tm.app.AnimationSprite(ss, 256, 256);
+            var loading = tm.display.AnimationSprite(ss, 256, 256);
             loading.position.set(ns.SCREEN_WIDTH - 100, ns.SCREEN_HEIGHT - 100);
             this.addChild(loading);
             loading.gotoAndPlay("load");
 
             this.alpha = 0.0;
             this.tweener.clear().fadeIn(100).call(function() {
-                if (param.assets) {
-                    tm.asset.AssetManager.onload = function() {
-                        this.tweener.clear().fadeOut(200).call(function() {
-                            this.app.replaceScene(param.nextScene());
-                        }.bind(this));
-                    }.bind(this);
-                    this.assets = tm.asset.AssetManager.load(param.assets);
-                    this.loadedCounter = this.assets._loadedCounter;
-                }
+                // 
+                var loader = tm.asset.Loader();
+                loader.load(param.assets);
+                // 
+                loader.onprogress = function (e) {
+                    this.loadedCounter = e.progress;
+                    this.bar.setBarLength(this.loadedCounter * 100);
+                }.bind(this);
+                // 
+                loader.onload = function() {
+                    this.tweener.clear().fadeOut(200).call(function() {
+                        this.app.replaceScene(param.nextScene());
+                    }.bind(this));
+                }.bind(this);
             }.bind(this));
-        },
-
-        update: function () {
-            if (this.assets) {
-                this.bar.setBarLength((this.assets._loadedCounter - this.loadedCounter) * this.barUnit);
-            }
         },
     });
     

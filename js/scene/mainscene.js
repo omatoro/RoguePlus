@@ -57,7 +57,7 @@
             this.superInit();
 
             // コントローラーパッド
-            var pad = continuePad || tm.app.Pad();
+            var pad = continuePad || tm.ui.Pad();
             this.pad = pad;
             pad.position.set(100, ns.SCREEN_HEIGHT - 80);
 
@@ -106,7 +106,7 @@
             map.setEnemyGroup(enemyGroup);
 
             // 攻撃時のエフェクト
-            var slashSS = tm.app.SpriteSheet({
+            var slashSS = tm.asset.SpriteSheet({
                 image: "slash",
                 frame: {
                     width:  65,
@@ -117,11 +117,11 @@
                     "slash": [0, 8]
                 }
             });
-            var slash = tm.app.AnimationSprite(slashSS, 120, 120);
+            var slash = tm.display.AnimationSprite(slashSS, 120, 120);
             slash.position.set(ns.SCREEN_WIDTH/2 + 10, ns.SCREEN_HEIGHT/2 + 10);
 
             // 敵撃破時のエフェクト
-            var enemyDeadSS = tm.app.SpriteSheet({
+            var enemyDeadSS = tm.asset.SpriteSheet({
                 image: "enemydead",
                 frame: {
                     width:  64,

@@ -50,7 +50,7 @@
 			this.attackTime = 0;
 
 			// 攻撃時のアニメーション
-			var ss = tm.app.SpriteSheet({
+			var ss = tm.asset.SpriteSheet({
                 image: "slash",
                 frame: {
                     width:  65,

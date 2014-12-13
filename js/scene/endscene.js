@@ -15,7 +15,7 @@
 
     ns.EndScene = tm.createClass({
 
-        superClass : tm.app.ResultScene,
+        superClass : tm.scene.ResultScene,
 
         // タイトル移動へのボタン
         title_button : {},
@@ -28,17 +28,12 @@
                 RESULT_PARAM.score = stairsNum + "階で死亡しました";
             }
             this.superInit(RESULT_PARAM);
-
-
-        },
-
-        update : function () {
         },
 
         // Backボタンを押したら、onpointingstart->インスタンス.dispatchEventにより
         // 以下onnextsceneイベントが実行される
         onnextscene : function () {
-            ns.app.replaceScene(ns.TitleScene());
+            ns.app.replaceScene(TitleScene());
             ns.MainScene.STAGE_NUMBER = 1;
         },
     });

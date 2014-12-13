@@ -38,14 +38,17 @@
 
             this.alpha = 0.0;
             this.tweener.clear().fadeIn(100).call(function() {
-                if (param.assets) {
+                if (Object.keys(param.assets).length > 0) {
                     tm.asset.AssetManager.onload = function() {
                         this.tweener.clear().fadeOut(200).call(function() {
                             this.app.replaceScene(param.nextScene());
                         }.bind(this));
                     }.bind(this);
-                    this.assets = tm.asset.AssetManager.load(param.assets);
+                    this.assets = tm.asset.Manager.get(param.assets);
                     this.loadedCounter = this.assets._loadedCounter;
+                }
+                else {
+                    this.app.replaceScene(param.nextScene());
                 }
             }.bind(this));
         },

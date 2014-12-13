@@ -42,7 +42,7 @@
 
             drawImageScaleSize = drawImageScaleSize || 4;
 
-            var ss = tm.app.SpriteSheet({
+            var ss = tm.asset.SpriteSheet({
                 image: imageName,
                 frame: frame,
                 animations: {

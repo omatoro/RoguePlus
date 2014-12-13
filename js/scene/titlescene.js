@@ -1,29 +1,25 @@
 /**
  * TitleScene
  */
-(function(ns) {
+tm.define("TitleScene", {
+    superClass : "tm.scene.TitleScene",
 
-    ns.TitleScene = tm.createClass({
-        superClass : tm.app.TitleScene,
+    init : function() {
+        this.superInit({
+            title :  "RoguePlus",
+            width :  game.SCREEN_WIDTH,
+            height : game.SCREEN_HEIGHT
+        });
 
-        init : function() {
-            this.superInit({
-                title :  "RoguePlus",
-                width :  ns.SCREEN_WIDTH,
-                height : ns.SCREEN_HEIGHT
+        this.onpointingstart = function(e) {
+            // シーンの切り替え
+            var loadingScene = game.EffectLoadingScene({
+                width:        e.app.width,
+                height:       e.app.height,
+                assets:       MAIN_ASSET,
+                nextScene:    game.MainScene,
             });
-
-            this.addEventListener("pointingend", function(e) {
-                // シーンの切り替え
-                var loadingScene = ns.EffectLoadingScene({
-                    width:        e.app.width,
-                    height:       e.app.height,
-                    assets:       MAIN_ASSET,
-                    nextScene:    ns.MainScene,
-                });
-                e.app.replaceScene(loadingScene);
-            });
-        }
-    });
-
-})(game);
+            e.app.replaceScene(loadingScene);
+        };
+    }
+});

@@ -23,7 +23,7 @@
 
             var drawImageScaleSize = drawImageScaleSize || 3;
 
-			var ss = tm.app.SpriteSheet({
+			var ss = tm.asset.SpriteSheet({
                 image: image || "dropTreasure",
                 frame: frame,
                 animations: {

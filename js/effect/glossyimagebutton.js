@@ -4,18 +4,21 @@
 (function(ns) {
 
 	ns.GlossyImageButton = tm.createClass({
-	    superClass: tm.app.Shape,
+	    superClass: tm.display.Shape,
 
 	    init: function(width, height, image, backgroundColor) {
-            this.superInit(width, height);
+            this.superInit({
+                width:width,
+                height: height,
+            });
             this.backgroundColor = backgroundColor || "black";
             this.alpha = tm.app.GlossyButton.DEFAULT_ALPHA-0.1;
 
             image.position.set(0, 0);
             this.addChild(image);
 
-            this.interaction.enabled = true;
-            this.interaction.boundingType = "rect";
+            this.setInteractive(true);
+            this.setBoundingType("rect");
             this.addEventListener("pointingover", function() {
                 this.tweener.clear();
                 this.tweener.fade(0.7, 250);

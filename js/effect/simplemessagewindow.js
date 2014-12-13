@@ -38,7 +38,7 @@
             label.x = -this.width/2 + 10;
             label.y = -this.height/2 + 5;
 
-	        this.interaction.enabled = false;
+	        this.setInteractive(false);
 	        this.alpha = 0;
 	        this.backgroundColor = "rgba(0, 0, 0, 0.0)";
 
@@ -64,8 +64,8 @@
 	    	this.directX += deltax/2;
 	    	this.directY += deltay/2;
 	    	this.timeline
-	    		.set({"x": this.x, "y": this.y}, 0)
-                .to({"x": this.directX, "y": this.directY}, 300, this.timeline.currentFrame * 1000/30 |0);
+	    		.set(0, {"x": this.x, "y": this.y})
+                .to(this.timeline.currentFrame * 1000/30 |0, {"x": this.directX, "y": this.directY}, 300);
 	    },
 
 	    update: function () {
